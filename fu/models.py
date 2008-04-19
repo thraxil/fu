@@ -14,6 +14,13 @@ class Author(models.Model):
     def __str__(self):
         return "%s %s" % (self.first_name,self.last_name)
 
+def current_issue():
+    r = Issue.objects.filter(status="published").order_by("-pub_date")
+    if r.count() == 0:
+        return None
+    else:
+        return list(r)[0]
+
 class Issue(models.Model):
     class Admin:
         pass
@@ -28,6 +35,10 @@ class Issue(models.Model):
 
     def __str__(self):
         return str(self.pub_date)
+
+    def get_absolute_url(self):
+        return "/issues/%04d-%02d-%02d/" % (self.pub_date.year,self.pub_date.month,self.pub_date.day)
+
 
 class Article(models.Model):
     class Admin:

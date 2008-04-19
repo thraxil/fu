@@ -1,14 +1,80 @@
+* { padding: 0; margin: 0; }
 
 body {
-     background-color: #eee;
+     margin: 0px;
 }
 
 h1 {
-   color: #ff6;
+   color: #000;
    background-color: 000;
    padding: 1px;
-   margin: 1px;
+   margin: 0px;
   font-size: 3em;
   text-align: center;
   font-weight: bold;
+}
+
+
+h1#masthead{
+	height:100px; 
+	background-color:#cccccc;
+	margin:0px; 
+	padding:0px;
+}
+
+ul#nav {
+background-color: #000;
+color: #fddb46;
+margin: 0px;
+list-style: none;
+}
+
+ul#nav li {
+   display: inline;
+   font-size: 2em;
+   padding-right: 5px;
+}
+
+#footer{
+   height:50px; 
+   background-color:#cccccc; 
+   margin:0px; 
+   padding:0px;
+}
+
+
+#sidebar { 
+ display: inline;
+ color: #333;
+ margin: 10px;
+ padding: 0px;
+ width: 300px;
+ float: right;
+ background-color: #eee0a1;
+}
+
+#main { 
+ float: left;
+ color: #333;
+/* border: 1px solid red;*/
+ margin: 10px;
+ padding: 0px;
+ width: 683px;
+ display: inline;
+ position: relative;
+}
+
+.clear { clear: both; background: none; }
+
+#faux {
+ background: url(faux-4-2-col.gif);
+ margin-bottom: 0px;
+ overflow: auto; /* Paul O Brien Fix for IE www.pmob.co.uk */
+ width: 100%
+}
+
+
+.article-thumb {
+	       float: left;
+	       margin: 5px;
 }

@@ -1,0 +1,14 @@
+
+body {
+     background-color: #eee;
+}
+
+h1 {
+   color: #ff6;
+   background-color: 000;
+   padding: 1px;
+   margin: 1px;
+  font-size: 3em;
+  text-align: center;
+  font-weight: bold;
+}

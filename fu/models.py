@@ -11,7 +11,7 @@ class Author(models.Model):
     class Meta:
         ordering = ["first_name","last_name"]
 
-    def __unicode__(self):
+    def __str__(self):
         return "%s %s" % (self.first_name,self.last_name)
 
 class Issue(models.Model):
@@ -26,7 +26,7 @@ class Issue(models.Model):
         get_latest_by = "pub_date"
         ordering = ["-pub_date"]
 
-    def __unicode__(self):
+    def __str__(self):
         return str(self.pub_date)
 
 class Article(models.Model):
@@ -40,15 +40,19 @@ class Article(models.Model):
     author = models.ForeignKey(Author)
     modified = models.DateTimeField(auto_now=True)
     main = models.BooleanField(default=False)
-    order = models.PositiveSmallIntegerField(default=1)
+    cardinality = models.PositiveSmallIntegerField(default=1)
 
     class Meta:
         order_with_respect_to = 'issue'
-        ordering = ['order']
+        ordering = ['cardinality']
         unique_together = [('issue','slug')]
 
-    def __unicode__(self):
+    def __str__(self):
         return self.slug
 
+    
+
+    
+    
 
 

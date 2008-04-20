@@ -83,4 +83,5 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'fusite.fu',
     'django.contrib.admin',
+    'django.contrib.markup',
 )

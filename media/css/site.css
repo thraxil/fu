@@ -73,7 +73,10 @@ ul#nav li {
 .clear { clear: both; background: none; }
 
 #faux {
- background: url(faux-4-2-col.gif);
+ background: url(/site_media/images/faux-bg.png);
+background-repeat: repeat-y;
+background-attachment:fixed;
+background-position: right;
  margin-bottom: 0px;
  overflow: auto; /* Paul O Brien Fix for IE www.pmob.co.uk */
  width: 100%

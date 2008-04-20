@@ -84,3 +84,8 @@ ul#nav li {
 	       float: left;
 	       margin: 5px;
 }
+
+p.lede { font-weight: bold;}
+p { margin-bottom: 2em;}
+
+a { color: #000; text-decoration: none;}

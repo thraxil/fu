@@ -1,0 +1,33 @@
+{% load markup %}
+{% extends "base.html" %}
+
+{% block content %}
+<h1 id="masthead"><span>the-fu.com: {{ article.headline }}</span></h1>
+
+<ul id="nav">
+<li>Home</li>
+<li>About</li> 
+<li>Roster</li> 
+<li>Archives</li> 
+<li>Links</li> 
+<li>Contact</li>
+</ul>
+
+<div id="faux">
+<div id="main">
+
+<h2>{{ article.headline }}</h2>
+<div class="article-thumb"><img src="/site_media/images/gray.png" width="200" height="200" alt="" /></div>
+
+<p class="lede">{{ article.lede}}</p>
+
+{{ article.content|markdown }}
+
+</div>
+
+<div id="sidebar">
+What goes in the sidebar on article pages?
+<div id="clear"></div>
+</div>
+</div>
+{% endblock %}

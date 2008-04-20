@@ -16,10 +16,16 @@ h1 {
 
 
 h1#masthead{
-	height:100px; 
+	height:432px; 
 	background-color:#cccccc;
 	margin:0px; 
 	padding:0px;
+   background: url(/site_media/images/banner-01.jpg);
+}
+
+h1#masthead span {
+	    position: relative;
+	    left: -1000px;
 }
 
 ul#nav {

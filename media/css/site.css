@@ -14,9 +14,15 @@ h1 {
   font-weight: bold;
 }
 
+#wrapper {
+   width: 700px;
+   margin: 0 auto;
+   border-left: #000 solid 1px;
+   border-right: #000 solid 1px;
+}
 
 h1#masthead{
-	height:432px; 
+	height:100px; 
 	background-color:#cccccc;
 	margin:0px; 
 	padding:0px;
@@ -37,7 +43,7 @@ list-style: none;
 
 ul#nav li {
    display: inline;
-   font-size: 2em;
+   font-size: 1.5em;
    padding-right: 5px;
 }
 
@@ -54,7 +60,7 @@ ul#nav li {
  color: #333;
  margin: 10px;
  padding: 0px;
- width: 300px;
+ width: 200px;
  float: right;
  background-color: #eee0a1;
 }
@@ -65,7 +71,7 @@ ul#nav li {
 /* border: 1px solid red;*/
  margin: 10px;
  padding: 0px;
- width: 683px;
+ width: 453px;
  display: inline;
  position: relative;
 }
@@ -75,8 +81,8 @@ ul#nav li {
 #faux {
  background: url(/site_media/images/faux-bg.png);
 background-repeat: repeat-y;
-background-attachment:fixed;
-background-position: right;
+//background-attachment:fixed;
+//background-position: right;
  margin-bottom: 0px;
  overflow: auto; /* Paul O Brien Fix for IE www.pmob.co.uk */
  width: 100%

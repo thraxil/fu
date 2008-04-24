@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% load markup %}
 {% load thumbnail %}
-
-
+{% block title %}{{ issue.pub_date }}{% endblock %}
+{% block bodyclass %}issue{% endblock %}
 {% block content %}
 <h1 id="masthead"><span>the-fu.com: {{ issue.pub_date }}</span></h1>
 
@@ -19,7 +19,7 @@
 <div id="main">
 
 <h2>{{ main_article.headline }}</h2>
-<div class="article-thumb"><img src="/site_media/images/gray.png" width="200" height="200" alt="" /></div>
+<div class="article-thumb"><img src="{% thumbnail main_article.image 200x200 crop %}" width="200" height="200" alt="" /></div>
 
 <p class="lede">{{ main_article.lede}}</p>
 

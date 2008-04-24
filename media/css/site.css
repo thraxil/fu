@@ -52,6 +52,15 @@ ul#nav a {
    color: #ffcc33;
 }
 
+ul#nav a:link {
+   color: #ffcc33;
+}
+
+ul#nav a:visited {
+   color: #ffcc33;
+}
+
+
 #footer{
    height:50px; 
    background-color:#cccccc; 
@@ -109,3 +118,9 @@ h2 { font-size: 1.1em;}
 #sidebar .article { margin-top: 10px; }
 
 #main h2 { font-size: 2em;}
+
+body.article h2 { color: #ffcc33; }
+
+body.article #byline .article-thumb { display: block; float: none;}
+
+body.article #byline p { color: #ffcc33;}

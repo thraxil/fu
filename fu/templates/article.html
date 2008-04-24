@@ -2,42 +2,64 @@
 {% load markup %}
 {% load thumbnail %}
 
+{% block title %}{{ article.headline }}{% endblock %}
+{% block bodyclass %}article{% endblock %}
+
 {% block content %}
 <h1 id="masthead"><span>the-fu.com: {{ article.headline }}</span></h1>
 
 <ul id="nav">
-<li>Home</li>
-<li>About</li> 
-<li>Roster</li> 
-<li>Archives</li> 
-<li>Links</li> 
-<li>Contact</li>
+<li><a href="/">Home</a></li>
+<li><a href="/about/">About</a></li> 
+<li><a href="/roster/">Roster</a></li> 
+<li><a href="/archives/">Archives</a></li> 
+<li><a href="/links/">Links</a></li> 
+<li><a href="/contact/">Contact</a></li>
 </ul>
 
+{% if article.cartoon %}
+
+<img src="{% thumbnail article.image 500x30000 %}" width="500" alt="" />
+
+{% else %}
 <div id="faux">
 <div id="main">
 
 <h2>{{ article.headline }}</h2>
-<div class="article-thumb"><img src="/site_media/images/gray.png" width="200" height="200" alt="" /></div>
+{% if article.image %}
+<div class="article-thumb">
+<img src="{% thumbnail article.image 200x200 crop %}"
+     width="200"
+     height="200"
+     alt=""
+     /></div>
+{% endif %}
 
-<p class="lede">{{ article.lede}}</p>
+{% if article.lede %}<p class="lede">{{ article.lede}}</p>{% endif %}
 
 {{ article.content|markdown }}
 
+{% endif %}
 
 <div id="byline">
 <div class="article-thumb">
 <img src="{% thumbnail article.author.headshot 65x65 crop,upscale %}"
      width="65" height="65" />
 </div>
-<p>by {{ article.author.fullname}}</p>
+<p>{{ article.author.fullname}}</p>
 </div>
 
+
+{% if not article.cartoon %}
 </div>
 
 <div id="sidebar">
 What goes in the sidebar on article pages?
 <div id="clear"></div>
+
+
+
 </div>
 </div>
+{% endif %}
 {% endblock %}

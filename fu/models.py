@@ -45,6 +45,19 @@ class Issue(models.Model):
                               choices=(('draft','Draft'),
                                        ('published','Published')))
 
+    banner = ImageWithThumbnailsField(upload_to="banners",
+                                      thumbnail = {
+        'size' : (700,100)
+        },
+                                      extra_thumbnails={
+        'admin': {
+        'size': (70, 50),
+        'options': ('sharpen',),
+        }
+        },
+                                      blank=True
+                                      )
+
     class Meta:
         get_latest_by = "pub_date"
         ordering = ["-pub_date"]
@@ -56,10 +69,10 @@ class Issue(models.Model):
         return "/issues/%04d-%02d-%02d/" % (self.pub_date.year,self.pub_date.month,self.pub_date.day)
 
     def non_main_articles(self):
-        return self.article_set.filter(main=False)
+        return list(self.article_set.order_by("cardinality"))[1:]
 
     def main_article(self):
-        return list(self.article_set.filter(main=True))[0]
+        return list(self.article_set.order_by("cardinality"))[0]
 
 class Article(models.Model):
     class Admin:
@@ -71,10 +84,20 @@ class Article(models.Model):
     issue = models.ForeignKey(Issue)
     author = models.ForeignKey(Author)
     modified = models.DateTimeField(auto_now=True)
-    main = models.BooleanField(default=False)
+    cartoon = models.BooleanField(default=False)
     cardinality = models.PositiveSmallIntegerField(default=1)
-    cartoon = models.ImageField(upload_to="cartoons/%Y/%m/%d",blank=True)
-
+    image = ImageWithThumbnailsField(upload_to="article_images/%Y/%m/%d",
+                                     thumbnail = {
+        'size' : (200,200)
+        },
+                                     extra_thumbnails={
+        'admin': {
+        'size': (70, 50),
+        'options': ('sharpen',),
+        }
+        },
+                                     blank=True
+                                     )
     class Meta:
         order_with_respect_to = 'issue'
         ordering = ['cardinality']

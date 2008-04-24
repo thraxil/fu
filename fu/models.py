@@ -1,12 +1,24 @@
 from django.db import models
+from sorl.thumbnail.fields import ImageWithThumbnailsField
 
 class Author(models.Model):
     class Admin:
         pass
-    first_name = models.CharField(maxlength=30)
-    last_name = models.CharField(maxlength=30)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
     email = models.EmailField()
     bio = models.TextField(blank=True)
+    headshot = ImageWithThumbnailsField(upload_to="headshots",
+                                        thumbnail = {
+        'size' : (65,65)
+        },
+                                        extra_thumbnails={
+        'admin': {
+        'size': (70, 50),
+        'options': ('sharpen',),
+        }
+        }
+                                        )
 
     class Meta:
         ordering = ["first_name","last_name"]
@@ -29,7 +41,7 @@ class Issue(models.Model):
     class Admin:
         pass
     pub_date = models.DateField()
-    status = models.CharField(maxlength=30,default="draft",
+    status = models.CharField(max_length=30,default="draft",
                               choices=(('draft','Draft'),
                                        ('published','Published')))
 
@@ -52,7 +64,7 @@ class Issue(models.Model):
 class Article(models.Model):
     class Admin:
         pass
-    headline = models.CharField(maxlength=256)
+    headline = models.CharField(max_length=256)
     slug = models.SlugField(prepopulate_from=["headline"])
     lede = models.TextField(blank=True)
     content = models.TextField(blank=True)
@@ -61,6 +73,7 @@ class Article(models.Model):
     modified = models.DateTimeField(auto_now=True)
     main = models.BooleanField(default=False)
     cardinality = models.PositiveSmallIntegerField(default=1)
+    cartoon = models.ImageField(upload_to="cartoons/%Y/%m/%d",blank=True)
 
     class Meta:
         order_with_respect_to = 'issue'

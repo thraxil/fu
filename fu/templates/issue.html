@@ -7,12 +7,12 @@
 <h1 id="masthead"><span>the-fu.com: {{ issue.pub_date }}</span></h1>
 
 <ul id="nav">
-<li>Home</li>
-<li>About</li> 
-<li>Roster</li> 
-<li>Archives</li> 
-<li>Links</li> 
-<li>Contact</li>
+<li><a href="/">Home</a></li>
+<li><a href="/about/">About</a></li> 
+<li><a href="/roster/">Roster</a></li> 
+<li><a href="/archives/">Archives</a></li> 
+<li><a href="/links/">Links</a></li> 
+<li><a href="/contact/">Contact</a></li>
 </ul>
 
 <div id="faux">
@@ -35,7 +35,7 @@
 </div>
 
 <div id="sidebar">
-<p>In This Issue</p>
+<h2>In This Issue</h2>
 
 {% for article in issue.non_main_articles %}
 

@@ -1,5 +1,6 @@
-{% load markup %}
 {% extends "base.html" %}
+{% load markup %}
+{% load thumbnail %}
 
 {% block content %}
 <h1 id="masthead"><span>the-fu.com: {{ article.headline }}</span></h1>
@@ -22,6 +23,16 @@
 <p class="lede">{{ article.lede}}</p>
 
 {{ article.content|markdown }}
+
+
+<div id="byline">
+<div class="article-thumb">
+<img src="{% thumbnail main_article.author.headshot 65x65 crop,upscale
+	  %}"
+     width="65" height="65" />
+</div>
+<p>by {{ main_article.author.fullname}}</p>
+</div>
 
 </div>
 

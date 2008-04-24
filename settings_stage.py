@@ -4,8 +4,6 @@ from settings_shared import *
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-)
-
 DATABASE_NAME = 'fu_stage'             # Or path to database file if using sqlite3.
 
 TEMPLATE_DIRS = (

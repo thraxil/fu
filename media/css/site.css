@@ -124,3 +124,14 @@ body.article h2 { color: #ffcc33; }
 body.article #byline .article-thumb { display: block; float: none;}
 
 body.article #byline p { color: #ffcc33;}
+
+.main #byline .article-thumb {display: block; float: none; }
+.main #byline p { color: #ffcc33;}
+
+body.roster .author-thumb {
+	    display: block;
+   float: left;
+   width: 100px;
+   height: 100px;
+   margin: 10px;
+}

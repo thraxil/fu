@@ -23,3 +23,7 @@ def article(request,year,month,day,slug):
     return render_to_response("article.html",
                               dict(issue=i,
                                    article=a))
+
+def roster(request):
+    return render_to_response("roster.html",
+                              dict(authors=list(Author.objects.order_by("first_name"))))

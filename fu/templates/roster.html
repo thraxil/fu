@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load markup %}
+{% load thumbnail %}
+
+{% block title %}Roster{% endblock %}
+{% block bodyclass %}roster{% endblock %}
+
+{% block content %}
+
+<h1 id="masthead"><span>the-fu.com: {{ article.headline }}</span></h1>
+
+<ul id="nav">
+<li><a href="/">Home</a></li>
+<li><a href="/about/">About</a></li> 
+<li><a href="/roster/">Roster</a></li> 
+<li><a href="/archives/">Archives</a></li> 
+<li><a href="/links/">Links</a></li> 
+<li><a href="/contact/">Contact</a></li>
+</ul>
+
+{% for author in authors %}
+<div class="author-thumb" id="author-{{ author.id }}">
+<a href="#author-{{ author.id }}"><img src="{% thumbnail author.headshot 65x65 crop,bw %}" 
+     
+     width="65"
+     height="65" 
+     alt="{{author.fullname}}" border="0"/></a>
+
+</div>
+
+{% endfor %}
+
+
+<div class="clear"></div>
+{% endblock %}

@@ -135,3 +135,12 @@ body.roster .author-thumb {
    height: 100px;
    margin: 10px;
 }
+
+#definition {
+	    background-color: #000;
+	    color: #fff;
+	    text-align: center;
+	    line-height: 1.1em;
+}
+
+.gold { color: #ffcc33;}

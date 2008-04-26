@@ -4,19 +4,8 @@
 
 {% block title %}Roster{% endblock %}
 {% block bodyclass %}roster{% endblock %}
-
+{% block masthead %}roster{% endblock %}
 {% block content %}
-
-<h1 id="masthead"><span>the-fu.com: {{ article.headline }}</span></h1>
-
-<ul id="nav">
-<li><a href="/">Home</a></li>
-<li><a href="/about/">About</a></li> 
-<li><a href="/roster/">Roster</a></li> 
-<li><a href="/archives/">Archives</a></li> 
-<li><a href="/links/">Links</a></li> 
-<li><a href="/contact/">Contact</a></li>
-</ul>
 
 {% for author in authors %}
 <div class="author-thumb" id="author-{{ author.id }}">

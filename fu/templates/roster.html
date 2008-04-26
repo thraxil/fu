@@ -3,18 +3,42 @@
 {% load thumbnail %}
 
 {% block title %}Roster{% endblock %}
+{% block js %}
+
+<script type="text/javascript"
+	src="/site_media/js/mochikit/MochiKit/MochiKit.js"></script>
+<script type="text/javascript" src="/site_media/js/roster.js"></script>
+
+{% endblock %}
+
 {% block bodyclass %}roster{% endblock %}
 {% block masthead %}roster{% endblock %}
 {% block content %}
 
+<p>Our writers are young thinkers with various passions and pursuits,
+  situated around the world.</p>
+
+<p>Click on a picture to learn more.</p>
+
 {% for author in authors %}
 <div class="author-thumb" id="author-{{ author.id }}">
-<a href="#author-{{ author.id }}"><img src="{% thumbnail author.headshot 65x65 crop,bw %}" 
+<a href="#author-bio-{{ author.id }}" class="author-link"><img src="{% thumbnail author.headshot 100x100 crop,bw %}" 
      
-     width="65"
-     height="65" 
+     width="100"
+     height="100" 
      alt="{{author.fullname}}" border="0"/></a>
 
+</div>
+
+<div class="author-bio" id="author-bio-{{author.id}}">
+<h2>{{ author.fullname }}</h2>
+
+<div class="headshot"><img src="{% thumbnail author.headshot 200x200 crop %}" width="200"
+     height="200"/></div>
+
+{{ author.bio|markdown }}
+
+<p class="close"><a href="#author-bio-{{ author.id }}" class="close-link">X close</a></p>
 </div>
 
 {% endfor %}

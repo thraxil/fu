@@ -144,3 +144,36 @@ body.roster .author-thumb {
 }
 
 .gold { color: #ffcc33;}
+
+body.roster p {
+  text-align: center;
+  margin: 5px;
+}
+
+.author-bio {
+    width: 400px;
+    background-color: #000;
+    color: #fff;
+    display: none;
+    position: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    top: 300px;
+}
+
+.author-bio .headshot { float: left; width: 210px; height: 210px; }
+
+body.roster .author-bio h2 {
+   color: #fc3;
+   text-align: right;
+}
+
+body.roster .author-bio p { text-align: left; font-size: .9em;}
+
+body.roster .author-bio .close {
+   text-align: right;
+   clear: both;
+}
+
+.close-link { color: #fc3;}
+

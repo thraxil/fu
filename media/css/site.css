@@ -168,6 +168,8 @@ body.roster .author-bio h2 {
    text-align: right;
 }
 
+body.roster .author-thumb a { border-bottom: none; }
+
 body.roster .author-bio p { text-align: left; font-size: .9em;}
 
 body.roster .author-bio .close {

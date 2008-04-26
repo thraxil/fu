@@ -1,0 +1,21 @@
+{% load thumbnail %}
+{% load markup %}
+{% if obj.cartoon %}
+
+<img src="{% thumbnail article.image 500x30000 %}" width="500" alt="" />
+
+{% else %}
+
+<p>{{ obj.lede|markdown }}</p>
+
+{{ obj.content|markdown }}
+
+{% endif %}
+
+<div id="byline">
+<div class="article-thumb">
+<img src="{% thumbnail obj.author.headshot 65x65 crop,upscale %}"
+     width="65" height="65" />
+</div>
+<p>{{ obj.author.fullname}}</p>
+</div>

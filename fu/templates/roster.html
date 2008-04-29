@@ -22,8 +22,13 @@
 
 {% for author in authors %}
 <div class="author-thumb" id="author-{{ author.id }}">
-<a href="#author-bio-{{ author.id }}" class="author-link"><img src="{% thumbnail author.headshot 100x100 crop,bw %}" 
-     
+{% thumbnail author.headshot 100x100 crop,bw as bwheadshot %}
+{% thumbnail author.headshot 100x100 crop as colorheadshot %}
+
+<a href="#author-bio-{{ author.id }}" 
+class="author-link"><img src="{{ bwheadshot }}"
+onmouseover="this.src = '{{colorheadshot}}'"
+onmouseout="this.src = '{{bwheadshot}}'"
      width="100"
      height="100" 
      alt="{{author.fullname}}" border="0"/></a>

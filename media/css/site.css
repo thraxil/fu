@@ -129,7 +129,7 @@ body.article #byline p { color: #ffcc33;}
 .main #byline .article-thumb {display: block; float: none; }
 .main #byline p { color: #ffcc33;}
 
-body.roster .author-thumb {
+body.team .author-thumb {
 	    display: block;
    float: left;
    width: 100px;
@@ -146,7 +146,7 @@ body.roster .author-thumb {
 
 .gold { color: #ffcc33;}
 
-body.roster p {
+body.team p {
   text-align: center;
   margin: 5px;
 }
@@ -164,17 +164,17 @@ body.roster p {
 
 .author-bio .headshot { float: left; width: 210px; height: 210px; }
 
-body.roster .author-bio h2 {
+body.team .author-bio h2 {
    color: #fc3;
    text-align: right;
    font-size: 1.5em;
 }
 
-body.roster .author-thumb a { border-bottom: none; }
+body.team .author-thumb a { border-bottom: none; }
 
-body.roster .author-bio p { text-align: left; font-size: .9em;}
+body.team .author-bio p { text-align: left; font-size: .9em;}
 
-body.roster .author-bio .close {
+body.team .author-bio .close {
    text-align: right;
    clear: both;
 }
@@ -185,5 +185,5 @@ body.roster .author-bio .close {
 
 #sidebar .article h2 {font-size: 1.1em;}
 
-#roster { width: 650px; margin-left: auto; margin-right: auto;
+#team { width: 650px; margin-left: auto; margin-right: auto;
  text-align: center;}

@@ -24,6 +24,6 @@ def article(request,year,month,day,slug):
                               dict(issue=i,
                                    article=a))
 
-def roster(request):
-    return render_to_response("roster.html",
+def team(request):
+    return render_to_response("team.html",
                               dict(authors=list(Author.objects.order_by("first_name"))))

@@ -5,7 +5,7 @@ feeds = dict(main=MainFeed)
 
 urlpatterns = patterns('',
                        (r'^$','fusite.fu.views.index'),
-                       (r'^roster/$','fusite.fu.views.roster'),
+                       (r'^team/$','fusite.fu.views.team'),
                        (r'^issues/(?P<year>\d+)\-(?P<month>\d+)\-(?P<day>\d+)/$', 'fusite.fu.views.issue'),
                        (r'^issues/(?P<year>\d+)\-(?P<month>\d+)\-(?P<day>\d+)/(?P<slug>[^/]+)/$', 'fusite.fu.views.article'),                       
                        (r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/home/anders/code/python/fusite/media/'}),

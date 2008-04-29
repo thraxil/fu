@@ -183,3 +183,5 @@ body.roster .author-bio .close {
 #sidebar h2 {font-size: 2.2em;}
 
 #sidebar .article h2 {font-size: 1.1em;}
+
+#roster { width: 650px; margin-left: auto; margin-right: auto;}

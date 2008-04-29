@@ -45,7 +45,28 @@
 </div>
 
 <div id="sidebar">
-What goes in the sidebar on article pages?
+
+<h2>In This Issue</h2>
+
+{% for article in article.issue.non_main_articles %}
+
+<div class="article">
+<div class="article-thumb">
+{% thumbnail article.author.headshot 65x65 crop,bw,upscale as bwheadshot %}
+{% thumbnail article.author.headshot 65x65 crop,upscale as colorheadshot %}
+<a href="{{ article.get_absolute_url }}"><img src="{{ bwheadshot }}" 
+onmouseover="this.src = '{{colorheadshot}}'" 
+onmouseout="this.src = '{{ bwheadshot }}'"
+width="65" height="65" border="0" /></a>
+</div>
+<h2><a href="{{ article.get_absolute_url }}">{{ article.headline }}</a></h2>
+<p>{{ article.author.fullname }}</p>
+<div class="clear"></div>
+</div>
+
+
+{% endfor %}
+
 <div id="clear"></div>
 
 

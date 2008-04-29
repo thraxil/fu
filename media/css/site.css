@@ -167,6 +167,7 @@ body.roster p {
 body.roster .author-bio h2 {
    color: #fc3;
    text-align: right;
+   font-size: 1.5em;
 }
 
 body.roster .author-thumb a { border-bottom: none; }
@@ -184,4 +185,5 @@ body.roster .author-bio .close {
 
 #sidebar .article h2 {font-size: 1.1em;}
 
-#roster { width: 650px; margin-left: auto; margin-right: auto;}
+#roster { width: 650px; margin-left: auto; margin-right: auto;
+ text-align: center;}

@@ -149,6 +149,15 @@ body.team .author-thumb {
 	    color: #fff;
 	    text-align: center;
 	    line-height: 1.1em;
+	    background: black url(/site_media/images/definition.jpg);
+	    height: 50px;
+	    background-repeat: no-repeat;
+	    background-position: top center;
+}
+
+#definition span {
+position: absolute;
+left: -3000px;
 }
 
 .gold { color: #ffcc33;}

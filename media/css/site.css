@@ -171,6 +171,10 @@ body.team p {
     text-align: center;
     top: 200px;
     border: #fc3 dashed 2px;
+    background: black url(/site_media/images/popup_bg.jpg);
+    background-repeat: no-repeat;
+//    background-attachment: fixed;
+    background-position: 300px 3px;
 }
 
 .invisible {
@@ -185,12 +189,19 @@ body.team p {
   text-align: left;
 }
 
+.author-bio .bio-inner p {
+margin-top: 30px;
+}
+
 .author-bio .headshot { float: left; width: 210px; height: 210px; }
 
 body.team .author-bio h2 {
    color: #fc3;
    text-align: right;
-   font-size: 1.5em;
+   font-size: 15px;
+   position: relative;
+   top: 15px;
+   padding-right: 50px;
 }
 
 body.team .author-thumb a { border-bottom: none; }

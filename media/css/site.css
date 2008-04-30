@@ -126,7 +126,7 @@ h2 { font-size: 14px;}
 
 #main h2 { font-size: 2em;}
 
-body.article h2 { color: #ffcc33; }
+body.article #main h2 { color: #ffcc33; }
 
 body.article #byline .article-thumb { display: block; float: none;}
 

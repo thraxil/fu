@@ -10,7 +10,10 @@
 <div id="main">
 
 <h2>{{ main_article.headline }}</h2>
+
+{% if main_article.image %}
 <div class="article-thumb"><img src="{% thumbnail main_article.image 200x200 crop %}" width="200" height="200" alt="" /></div>
+{% endif %}
 
 <p class="lede">{{ main_article.lede}}</p>
 

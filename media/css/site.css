@@ -21,8 +21,6 @@ a { border-bottom: #000 dotted 1px;}
 #wrapper {
    width: 900px;
    margin: 0 auto;
-   border-left: #000 solid 1px;
-   border-right: #000 solid 1px;
    text-align: left;
 }
 
@@ -165,11 +163,12 @@ body.team p {
     background-color: #000;
     color: #fff;
     display: block;
-    position: absolute;
+    position: fixed;
     margin-left: auto;
     margin-right: auto;
     padding: 2px;
-//    top: 200px;
+    text-align: center;
+    top: 200px;
 }
 
 .invisible {
@@ -181,6 +180,7 @@ body.team p {
   height: 420px;
   overflow: auto;
   padding: 5px;
+  text-align: left;
 }
 
 .author-bio .headshot { float: left; width: 210px; height: 210px; }

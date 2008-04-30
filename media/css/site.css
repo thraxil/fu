@@ -2,6 +2,7 @@
 
 body {
      margin: 0px;
+     text-align: center;
      font-family:"Trebuchet MS", "Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
 }
 
@@ -22,6 +23,7 @@ a { border-bottom: #000 dotted 1px;}
    margin: 0 auto;
    border-left: #000 solid 1px;
    border-right: #000 solid 1px;
+   text-align: left;
 }
 
 h1#masthead{
@@ -162,14 +164,16 @@ body.team p {
     height: 500px;
     background-color: #000;
     color: #fff;
-    display: none;
-    position: fixed;
+    display: block;
+    position: absolute;
     margin-left: auto;
     margin-right: auto;
-    margin-top: auto;
-    margin-left: auto;
     padding: 2px;
     top: 200px;
+}
+
+.invisible {
+  display: none;
 }
 
 .author-bio .bio-inner {

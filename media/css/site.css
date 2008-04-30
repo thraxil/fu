@@ -18,14 +18,14 @@ h1 {
 a { border-bottom: #000 dotted 1px;}
 
 #wrapper {
-   width: 700px;
+   width: 900px;
    margin: 0 auto;
    border-left: #000 solid 1px;
    border-right: #000 solid 1px;
 }
 
 h1#masthead{
-	height:100px; 
+	height:129px; 
 	background-color:#cccccc;
 	margin:0px; 
 	padding:0px;
@@ -86,7 +86,7 @@ ul#nav a:visited {
 /* border: 1px solid red;*/
  margin: 10px;
  padding: 0px;
- width: 453px;
+ width: 653px;
  display: inline;
  position: relative;
 }
@@ -97,7 +97,7 @@ ul#nav a:visited {
  background: url(/site_media/images/faux-bg.png);
 background-repeat: repeat-y;
 //background-attachment:fixed;
-//background-position: right;
+background-position: right;
  margin-bottom: 0px;
  overflow: auto; /* Paul O Brien Fix for IE www.pmob.co.uk */
  width: 100%

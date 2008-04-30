@@ -121,7 +121,7 @@ p { margin-bottom: 2em;}
 
 a { color: #000; text-decoration: none;}
 
-h2 { font-size: 1.1em;}
+h2 { font-size: 14px;}
 
 #sidebar .article { margin-top: 10px; }
 
@@ -204,9 +204,9 @@ body.team .author-bio .close {
 
 .close-link { color: #fc3;}
 
-#sidebar h2 {font-size: 2.2em;}
+#sidebar h2 {font-size: 26px;}
 
-#sidebar .article h2 {font-size: 1.1em;}
+#sidebar .article h2 {font-size: 14px;}
 
 body.team #main { text-align: center;}
 

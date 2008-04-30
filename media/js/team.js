@@ -1,4 +1,5 @@
 function showAuthorBio() {
+  hideAll();
   var id = this.href.split("#")[1];
   makeVisible(id);
   return false;
@@ -44,5 +45,9 @@ function initBioPopups() {
         return !hasElementClass(elem, "invisible");
     };
 
+function hideAll() {
+  forEach(getElementsByTagAndClassName("div","author-bio"),
+	  makeInvisible);
+  }
 
 addLoadEvent(initBioPopups);

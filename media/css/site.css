@@ -39,26 +39,32 @@ h1#masthead span {
 
 ul#nav {
 background-color: #000;
-margin: 0px;
+margin-bottom: 0px;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
 list-style: none;
 }
 
 ul#nav li {
    display: inline;
    font-size: 1.5em;
-   padding-right: 5px;
+   padding-right: 25px;
 }
 
 ul#nav a {
    color: #ffcc33;
+   border-bottom: none;
 }
 
 ul#nav a:link {
    color: #ffcc33;
+   border-bottom: none;
 }
 
 ul#nav a:visited {
    color: #ffcc33;
+   border-bottom: none;
 }
 
 
@@ -152,14 +158,23 @@ body.team p {
 }
 
 .author-bio {
-    width: 400px;
+    width: 500px;
+    height: 500px;
     background-color: #000;
     color: #fff;
     display: none;
     position: fixed;
     margin-left: auto;
     margin-right: auto;
-    top: 300px;
+    padding: 2px;
+//    top: 200px;
+}
+
+.author-bio .bio-inner {
+  width: 480px;
+  height: 420px;
+  overflow: auto;
+  padding: 5px;
 }
 
 .author-bio .headshot { float: left; width: 210px; height: 210px; }

@@ -38,12 +38,12 @@ onmouseout="this.src = '{{bwheadshot}}'"
 
 <div class="author-bio" id="author-bio-{{author.id}}">
 <h2>{{ author.fullname }}</h2>
-
+<div class="bio-inner">
 <div class="headshot"><img src="{% thumbnail author.headshot 200x200 crop %}" width="200"
      height="200"/></div>
 
 {{ author.bio|markdown }}
-
+</div>
 <p class="close"><a href="#author-bio-{{ author.id }}" class="close-link">X close</a></p>
 </div>
 

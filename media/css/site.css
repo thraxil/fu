@@ -138,7 +138,7 @@ h2 { font-size: 14px;}
 
 #sidebar .article { margin-top: 10px; }
 
-#main h2 { font-size: 2em;}
+#main h2 { font-size: 1.9em; margin-bottom: 1em; margin-top: 1em;}
 
 body.article #main h2 { color: #ffcc33; }
 
@@ -237,7 +237,7 @@ body.team .author-bio .close {
 
 .close-link { color: #fc3;}
 
-#sidebar h2 {font-size: 26px;}
+#sidebar h2 {font-size: 26px; margin-top: 3em;}
 
 #sidebar .article h2 {font-size: 14px;}
 

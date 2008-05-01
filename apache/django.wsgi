@@ -3,7 +3,7 @@ import os, sys
 sys.path.append('/var/www/fu/stage/')
 sys.path.append('/var/www/fu/stage/fusite/')
 
-os.environ['DJANGO_SETTINGS_MODULE'] = 'fusite.settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'fusite.settings_production'
 
 import django.core.handlers.wsgi
 

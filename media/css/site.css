@@ -232,3 +232,50 @@ body.team #main { text-align: center;}
 #team { width: 650px; margin-left: auto; margin-right: auto; text-align: left;}
 
 #sidebar .article-thumb a { border-bottom: none;}
+
+#about-header {  background: url(/site_media/images/about.gif);
+ width: 150;
+ height: 100;
+ float: left;
+}
+
+#about-header span { position: fixed; left: 3000px;}
+
+#bodytext { width: 500px; float: right;}
+
+#contact-header {  background: url(/site_media/images/contact.gif);
+ width: 200;
+ height: 100;
+ float: left;
+}
+
+#contact-header span { position: fixed; left: 3000px;}
+
+#links-fuel {
+padding: 20px;
+width: 400px;
+float: left;
+}
+
+
+#links-fuel h2 {
+width: 70px;
+height: 30px;
+background: url(/site_media/images/FUel.gif);
+}
+#links-fuel h2 span { position: fixed; left: 3000px;}
+
+
+#links-fun {
+padding: 20px;
+width: 400px;
+float: right;
+}
+
+#links-fun h2 {
+width: 70px;
+height: 30px;
+background: url(/site_media/images/FUn.gif);
+}
+#links-fun h2 span { position: fixed; left: 3000px;}
+

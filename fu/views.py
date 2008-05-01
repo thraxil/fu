@@ -27,3 +27,15 @@ def article(request,year,month,day,slug):
 def team(request):
     return render_to_response("team.html",
                               dict(authors=list(Author.objects.order_by("first_name"))))
+
+
+def about(request):
+    return render_to_response("about.html",dict())
+
+def links(request):
+    return render_to_response("links.html",dict())
+
+def contact(request):
+    return render_to_response("contact.html",dict())
+
+

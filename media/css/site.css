@@ -54,19 +54,32 @@ ul#nav li {
 }
 
 ul#nav a {
-   color: #ffcc33;
+   color: #cccccc;
    border-bottom: none;
 }
 
-ul#nav a:link {
-   color: #ffcc33;
-   border-bottom: none;
+ul#nav a:hover {
+  color: #ffcc33;
 }
 
-ul#nav a:visited {
-   color: #ffcc33;
-   border-bottom: none;
-}
+body.links li#links-nav-link a { color: #fc3;}
+body.about li#about-nav-link a { color: #fc3;}
+body.team li#team-nav-link a { color: #fc3;}
+body.contact li#contact-nav-link a { color: #fc3;}
+body.Archives li#archives-nav-link a { color: #fc3;}
+body.article ul#nav a { color: #fc3;}
+body.issue ul#nav a { color: #fc3;}
+
+
+//ul#nav a:link {
+//   color: #ffcc33;
+//   border-bottom: none;
+//}
+
+//ul#nav a:visited {
+//   color: #ffcc33;
+//   border-bottom: none;
+//}
 
 
 #footer{

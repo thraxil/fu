@@ -45,6 +45,7 @@ margin-right: auto;
 text-align: center;
 list-style: none;
 display: block;
+width: 100%;
 }
 
 ul#nav li {

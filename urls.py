@@ -14,5 +14,6 @@ urlpatterns = patterns('',
                        (r'^about/', 'fusite.fu.views.about'),
                        (r'^links/', 'fusite.fu.views.links'),
                        (r'^contact/', 'fusite.fu.views.contact'),
+                       (r'^archives/', 'fusite.fu.views.archives'),                       
                        (r'^feeds/(?P<url>.*)/$','django.contrib.syndication.views.feed', {'feed_dict': feeds}),
 )

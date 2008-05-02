@@ -38,4 +38,7 @@ def links(request):
 def contact(request):
     return render_to_response("contact.html",dict())
 
+def archives(request):
+    return render_to_response("archives.html",dict())
+
 

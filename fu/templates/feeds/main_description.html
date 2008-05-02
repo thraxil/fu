@@ -2,9 +2,13 @@
 {% load markup %}
 {% if obj.cartoon %}
 
-<img src="http://the-fu.com{% thumbnail article.image 500x30000 %}" width="500" alt="" />
+<img src="http://the-fu.com{% thumbnail obj.image 500x30000 %}" width="500" alt="" />
 
 {% else %}
+
+{% if obj.image %}
+<img src="http://the-fu.com{% thumbnail obj.image 400x500 crop %}" width="400" height="500" alt="" />
+{% endif %}
 
 <p>{{ obj.lede|markdown }}</p>
 

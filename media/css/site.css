@@ -181,8 +181,8 @@ body.team p {
 }
 
 .author-bio {
-    width: 500px;
-    height: 500px;
+    width: 50%;
+    height: 300px;
     background-color: #000;
     color: #fff;
     display: block;
@@ -191,7 +191,8 @@ body.team p {
     margin-right: auto;
     padding: 2px;
     text-align: center;
-    top: 200px;
+    top: 25%;
+    left: 25%;
     border: #fc3 dashed 2px;
     background: black url(/site_media/images/popup_bg.jpg);
     background-repeat: no-repeat;
@@ -204,15 +205,18 @@ body.team p {
 }
 
 .author-bio .bio-inner {
-  width: 480px;
-  height: 420px;
+  width: 95%;
+  height: 70%;
+  margin-top: 30px;
+  margin-bottom: 13px;
   overflow: auto;
   padding: 5px;
   text-align: left;
+  float: right;
 }
 
 .author-bio .bio-inner p {
-margin-top: 30px;
+margin-top: 0px;
 }
 
 .author-bio .headshot { float: left; width: 210px; height: 210px; }

@@ -1,6 +1,6 @@
 from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render_to_response
-from models import Author,Issue,Article,current_issue
+from models import Author,Issue,Article,current_issue,Comment
 
 def index(request):
     # get newest issue and redirect to it
@@ -23,6 +23,36 @@ def article(request,year,month,day,slug):
     return render_to_response("article.html",
                               dict(issue=i,
                                    article=a))
+
+def add_comment(request,year,month,day,slug):
+    i = Issue.objects.get(pub_date="%04d-%02d-%02d" % (int(year),int(month),int(day)))
+    a = list(i.article_set.filter(slug=slug))[0]
+
+    url = request.POST["url"]
+    if not url == "":
+        if not url.startswith("http://"):
+            url = "http://" + url
+
+    if request.POST['name'] == "" or request.POST['email'] == "":
+        return HttpResponse("name and email are required fields")
+
+    if request.POST['content'] == "":
+        return HttpResponse("no content in your comment")
+    
+    c = Comment(name=request.POST['name'],
+                url = url,
+                email = request.POST['email'],
+                content = request.POST['content'],
+                ip = request.META['REMOTE_ADDR'],
+                article = a)
+    referer = request.META.get('HTTP_REFERER',a.get_absolute_url())
+    if not request.user.is_anonymous():
+        c.status = "approved"
+    c.save()
+    if c.status == "pending":
+        return HttpResponse("your comment has been submitted and is pending moderator approval. <a href='%s'>return</a>" % referer)
+    else:
+        return HttpResponseRedirect(referer)
 
 def team(request):
     return render_to_response("team.html",

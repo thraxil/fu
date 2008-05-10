@@ -26,6 +26,57 @@
 </div>
 <p>by {{ main_article.author.fullname}}</p>
 </div>
+<div class="clear"></div>
+
+<hr />
+
+<div id="comments">
+{% if not main_article.approved_comments %}
+{% else %}
+<h3>comments</h3>
+{% for comment in main_article.approved_comments %}
+
+<div class="comment" id="comment-{{ comment.id }}">
+<div class="comment-byline">
+{% if comment.url %}
+<a href="{{ comment.url }}">{{ comment.name }}</a>
+{% else %}
+{{ comment.name }}
+{% endif %}
+ at <i>{{ comment.timestamp|date:"D d M Y H:i:s" }}</i>
+</div>
+
+{{ comment.content|markdown:"safe" }}
+
+</div>
+{% endfor %}
+{% endif %}
+</div>
+
+<div id="comment-form">
+<form action="{{ main_article.get_absolute_url }}add_comment/"
+      method="post" onsubmit="return commentSubmit()">
+
+<textarea name="content" id="comment-textarea"></textarea><br />
+<p style="font-size: .8em;">formatting is
+  with <a
+	  href="http://daringfireball.net/projects/markdown/syntax">Markdown</a>
+  syntax.</p>
+<table>
+<tr><th>name</th><td><input type="text" name="name" id="comment-name"/></td><td>required</td></tr>
+<tr><th>email</th><td><input type="text" name="email" id="comment-email"/></td><td>required</td></tr>
+<tr><th>url</th><td><input type="text" name="url" id="comment-url"/></td><td></td></tr>
+<tr><th></th><td><input type="checkbox" checked="checked"
+				 name="remember" id="comment-remember"
+				 />
+remember info?
+</td><td></td></tr>
+</table><br />
+<input type="submit" value="add comment" />
+</form>
+</div>
+<div class="clear"></div>
+
 </div>
 
 <div id="sidebar">

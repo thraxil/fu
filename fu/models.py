@@ -75,8 +75,6 @@ class Issue(models.Model):
         return list(self.article_set.order_by("cardinality"))[0]
 
 class Article(models.Model):
-    class Admin:
-        pass
     headline = models.CharField(max_length=256)
     slug = models.SlugField(prepopulate_from=["headline"])
     lede = models.TextField(blank=True)
@@ -98,6 +96,9 @@ class Article(models.Model):
         },
                                      blank=True
                                      )
+    class Admin:
+        list_filter = ["issue"]
+
     class Meta:
         order_with_respect_to = 'issue'
         ordering = ['cardinality']
@@ -109,8 +110,33 @@ class Article(models.Model):
     def get_absolute_url(self):
         return "%s%s/" % (self.issue.get_absolute_url(),self.slug)
 
+    def approved_comments(self):
+        return self.comment_set.filter(status="approved").order_by("timestamp")
     
+class Comment(models.Model):
+    article = models.ForeignKey(Article)
+    name    = models.CharField(max_length=256)
+    email   = models.EmailField()
+    url     = models.URLField(blank=True)
+    ip      = models.IPAddressField()
+    status  = models.CharField(max_length=30,default="pending",
+                               choices=(('pending','Pending Moderation'),
+                                        ('approved','Approved')))
+    timestamp = models.DateTimeField(auto_now_add=True)
+    content   = models.TextField()
 
+    class Admin:
+        list_filter = ["status"]
+
+    class Meta:
+        order_with_respect_to = 'article'
+        ordering = ['timestamp']
+
+    def __str__(self):
+        return "[%s] on %s by %s at %s" % (self.status,self.article.headline,self.name,self.timestamp)
+
+    
+    
 
     
 

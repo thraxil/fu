@@ -297,3 +297,15 @@ background: url(/site_media/images/FUn.gif);
 #footer { font-size: .8em; padding-top: 10px;}
 #feedlink {float: right;}
 #credits { float: left;}
+
+#comments { width: 48%; float: left; padding: 5px;
+font-size: 90%;}
+#comment-form {width: 48%; float: right; padding: 5px;
+
+
+}
+#comment-form textarea {width: 100%; height: 150px;
+}
+
+.comment { padding-top: 20px; border-bottom: #000 solid 1px;}
+.comment-byline { background-color: #eee; width: 100%;}

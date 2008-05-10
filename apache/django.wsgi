@@ -1,7 +1,7 @@
 import os, sys
 
-sys.path.append('/var/www/fu/stage/')
-sys.path.append('/var/www/fu/stage/fusite/')
+sys.path.append('/var/www/fu/prod/')
+sys.path.append('/var/www/fu/prod/fusite/')
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'fusite.settings_production'
 

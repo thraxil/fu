@@ -72,6 +72,9 @@ body.Archives li#archives-nav-link a { color: #fc3;}
 body.article ul#nav a { color: #fc3;}
 body.issue ul#nav a { color: #fc3;}
 
+body.about ul#nav { margin-bottom: 30px;}
+body.archives ul#nav { margin-bottom: 30px;}
+body.contact ul#nav { margin-bottom: 30px;}
 
 #footer{
    height:50px; 

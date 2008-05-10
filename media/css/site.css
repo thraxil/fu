@@ -88,7 +88,6 @@ body.issue ul#nav a { color: #fc3;}
    height:50px; 
    background-color:#cccccc; 
    margin:0px; 
-   padding:0px;
 }
 
 
@@ -295,3 +294,6 @@ background: url(/site_media/images/FUn.gif);
 }
 #links-fun h2 span { position: fixed; left: 3000px;}
 
+#footer { font-size: .8em; padding-top: 10px;}
+#feedlink {float: right;}
+#credits { float: left;}

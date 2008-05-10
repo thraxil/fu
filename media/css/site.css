@@ -132,14 +132,14 @@ h2 { font-size: 14px;}
 #main h2 { font-size: 1.9em; margin-bottom: 1em; margin-top: 1em;}
 
 h2.cartoon {color: #999; font-size: 1.9em;}
-body.article #main h2 { color: #999; }
+body.article #main h2 { color: #999; margin-bottom: 0px;}
 
-body.article #byline .article-thumb { display: block; float: none;}
+body.article #byline .article-thumb { display: block; float: left;}
 
-body.article #byline p { color: #ffcc33;}
+body.article #byline p { color: #000; font-size: 1.1em; padding-top: 5px;}
 
 .main #byline .article-thumb {display: block; float: none; }
-.main #byline p { color: #ffcc33;}
+.main #byline p { color: #ffcc33; }
 
 body.team .author-thumb {
 	    display: block;

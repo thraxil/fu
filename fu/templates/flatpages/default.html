@@ -7,8 +7,11 @@
 {% block bodyclass %}{{ flatpage.title|lower }}{% endblock %}
 {% block content %}
 
-<h2>{{ flatpage.title }}</h2>
-
+{% ifequal flatpage.title "Links" %}
+{{ flatpage.content|safe}}
+{% else %}
 {{ flatpage.content|markdown}}
+{% endifequal %}
 
+<div class="clear"></div>
 {% endblock %}

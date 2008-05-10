@@ -135,8 +135,9 @@ class Comment(models.Model):
     def __str__(self):
         return "[%s] on %s by %s at %s" % (self.status,self.article.headline,self.name,self.timestamp)
 
-    
-    
+    def get_absolute_url(self):
+        return self.article.get_absolute_url() + "#comment-%s" % str(self.id)
+
 
     
 

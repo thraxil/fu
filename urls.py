@@ -1,7 +1,9 @@
 from django.conf.urls.defaults import *
-from fusite.fu.feeds import MainFeed
+from fusite.fu.feeds import MainFeed,CommentFeed,CommentModerationFeed
 
-feeds = dict(main=MainFeed)
+feeds = dict(main=MainFeed,
+             comments=CommentFeed,
+             moderation=CommentModerationFeed)
 
 urlpatterns = patterns('',
                        (r'^$','fusite.fu.views.index'),

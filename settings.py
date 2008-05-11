@@ -13,6 +13,8 @@ TEMPLATE_DIRS = (
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
 MEDIA_ROOT = '/tmp/fusite/data/'
+SERVER_EMAIL = 'anders@columbia.edu'
+
 
 
 

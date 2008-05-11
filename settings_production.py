@@ -14,3 +14,4 @@ TEMPLATE_DIRS = (
 # Example: "/home/media/media.lawrence.com/"
 MEDIA_ROOT = '/var/www/fu/prod/data/'
 
+SERVER_EMAIL = 'anders@columbia.edu'

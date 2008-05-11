@@ -4,11 +4,13 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@domain.com'),
-    ('Anders Pearson','anders@columbia.edu')
+    ('Anders Pearson','anders@columbia.edu'),
 )
 
-MANAGERS = ADMINS
+MANAGERS = (
+    ('Anders Pearson','anders@columbia.edu'),
+    ('Onika Simon','onikaverse@gmail.com'),
+    )
 
 DATABASE_ENGINE = 'postgresql_psycopg2'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'ado_mssql'.
 DATABASE_USER = 'anders'             # Not used with sqlite3.
@@ -76,3 +78,6 @@ INSTALLED_APPS = (
 )
 
 THUMBNAIL_SUBDIR = "thumbs"
+
+EMAIL_SUBJECT_PREFIX = '[the-fu] '
+EMAIL_HOST = 'localhost'

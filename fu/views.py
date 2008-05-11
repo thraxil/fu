@@ -1,6 +1,8 @@
 from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render_to_response
 from models import Author,Issue,Article,current_issue,Comment
+from django.core.mail import mail_managers
+
 
 def index(request):
     # get newest issue and redirect to it
@@ -50,6 +52,18 @@ def add_comment(request,year,month,day,slug):
         c.status = "approved"
     c.save()
     if c.status == "pending":
+        subject = "new comment on %s" % a.headline
+        message = """comment from: %s
+
+------
+%s
+------
+
+        to approve or delete, go here:
+
+        http://the-fu.com/admin/fu/comment/%d/
+        """ % (c.name,c.content,c.id)
+        mail_managers(subject,message,fail_silently=False)
         return HttpResponse("your comment has been submitted and is pending moderator approval. <a href='%s'>return</a>" % referer)
     else:
         return HttpResponseRedirect(referer)

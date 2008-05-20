@@ -30,15 +30,15 @@ def add_comment(request,year,month,day,slug):
     i = Issue.objects.get(pub_date="%04d-%02d-%02d" % (int(year),int(month),int(day)))
     a = list(i.article_set.filter(slug=slug))[0]
 
-    url = request.POST["url"]
+    url = request.POST.get("url","")
     if not url == "":
         if not url.startswith("http://"):
             url = "http://" + url
 
-    if request.POST['name'] == "" or request.POST['email'] == "":
+    if request.POST.get('name','') == "" or request.POST.get('email','') == "":
         return HttpResponse("name and email are required fields")
 
-    if request.POST['content'] == "":
+    if request.POST.get('content','') == "":
         return HttpResponse("no content in your comment")
     
     c = Comment(name=request.POST['name'],

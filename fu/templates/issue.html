@@ -30,6 +30,26 @@
 
 <hr />
 
+<a title="post to delicious" href="http://del.icio.us/post?url=http://the-fu.com{{issue.get_absolute_url|urlencode}}&amp;title={{main_article.headline|urlencode}}"><img src="http://images.del.icio.us/static/img/delicious.small.gif"
+									border="0"									  
+																		  
+			 width="10" height="10" alt="add to delicious"
+   /></a>
+
+<a href="http://reddit.com/submit?url=http://the-fu.com{{issue.get_absolute_url|urlencode}}&amp;title={{main_article.headline|urlencode}}"
+   title="post to reddit"><img src="http://static.reddit.com/blog_head.png"
+   height="16" width="16" border="0" /></a>
+
+<a title="digg it" href="http://digg.com/submit?phase=2&url=http://the-fu.com{{issue.get_absolute_url|urlencode}}&amp;title={{main_article.headline|urlencode}}"><img src="http://digg.com/img/badges/16x16-digg-guy.gif"
+																		   width="16"
+																		   height="16"
+																		   border="0"
+																		   alt="digg this"/></a>
+
+
+
+<hr />
+
 <div id="comments">
 {% if not main_article.approved_comments %}
 {% else %}

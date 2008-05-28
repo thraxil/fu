@@ -96,6 +96,7 @@ class Article(models.Model):
         },
                                      blank=True
                                      )
+    
     class Admin:
         list_filter = ["issue"]
 

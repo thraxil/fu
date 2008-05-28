@@ -7,12 +7,17 @@
 {% block bodyclass %}Archives{% endblock %}
 {% block content %}
 
-<h2 id="contact-header"><span>Archives</span></h2>
-
 <div id="bodytext">
-<p>
-Coming soon...
-</p>
+
+{% if only_one %}
+<p>Coming Soon...</p>
+{% else %}
+<ul>
+{% for issue in issues %}
+<li><a href="{{issue.get_absolute_url}}">{{issue.pub_date}}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
 
 </div>
 

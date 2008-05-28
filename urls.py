@@ -14,6 +14,6 @@ urlpatterns = patterns('',
                        (r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/home/anders/code/python/fusite/media/'}),
                        (r'^uploads/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/tmp/fusite/data'}),                       
                        (r'^admin/', include('django.contrib.admin.urls')),
-#                       (r'^archives/', 'fusite.fu.views.archives'),                       
+                       (r'^archives/', 'fusite.fu.views.archives'),                       
                        (r'^feeds/(?P<url>.*)/$','django.contrib.syndication.views.feed', {'feed_dict': feeds}),
 )

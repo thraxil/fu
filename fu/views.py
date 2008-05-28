@@ -83,6 +83,8 @@ def contact(request):
     return render_to_response("contact.html",dict())
 
 def archives(request):
-    return render_to_response("archives.html",dict())
+    issues = Issue.objects.filter(status="published").order_by("-pub_date")
+    only_one = len(issues) == 1
+    return render_to_response("archives.html",dict(issues=issues,only_one=only_one))
 
 

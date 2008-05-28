@@ -3,9 +3,13 @@
 {% load thumbnail %}
 
 {% block title %}{{ article.headline }}{% endblock %}
+{% block css %}
+h1#masthead { background: url(/site_media/images/banner-{{article.issue.pub_date}}.jpg) !important;
+}
+{% endblock %}
+
 {% block bodyclass %}article{% endblock %}
 {% block masthead %}{{ article.headline }}{% endblock %}
-
 {% block content %}
 
 

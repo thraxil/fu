@@ -2,6 +2,10 @@
 {% load markup %}
 {% load thumbnail %}
 {% block title %}{{ issue.pub_date }}{% endblock %}
+{% block css %}
+h1#masthead { background: url(/site_media/images/banner-{{issue.pub_date}}.jpg) !important;
+}
+
 {% block bodyclass %}issue{% endblock %}
 {% block masthead %}{{ issue.pub_date }}{% endblock %}
 {% block content %}

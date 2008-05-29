@@ -15,5 +15,7 @@ urlpatterns = patterns('',
                        (r'^uploads/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/tmp/fusite/data'}),                       
                        (r'^admin/', include('django.contrib.admin.urls')),
                        (r'^archives/', 'fusite.fu.views.archives'),                       
+                       (r'^tags/$', 'fusite.fu.views.tags'),
+                       (r'^tags/(?P<slug>[^/]+)/$', 'fusite.fu.views.tag'),
                        (r'^feeds/(?P<url>.*)/$','django.contrib.syndication.views.feed', {'feed_dict': feeds}),
 )

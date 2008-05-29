@@ -1,6 +1,6 @@
 from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render_to_response
-from models import Author,Issue,Article,current_issue,Comment
+from models import Author,Issue,Article,current_issue,Comment,Tag,tag_cloud
 from django.core.mail import mail_managers
 
 
@@ -17,14 +17,16 @@ def issue(request,year,month,day):
     i = Issue.objects.get(pub_date="%04d-%02d-%02d" % (int(year),int(month),int(day)))
     main_article = i.main_article()
     return render_to_response("issue.html",dict(issue=i,
-                                                main_article=main_article))
+                                                main_article=main_article,
+                                                tag_cloud=tag_cloud()))
 
 def article(request,year,month,day,slug):
     i = Issue.objects.get(pub_date="%04d-%02d-%02d" % (int(year),int(month),int(day)))
     a = list(i.article_set.filter(slug=slug))[0]
     return render_to_response("article.html",
                               dict(issue=i,
-                                   article=a))
+                                   article=a,
+                                   tag_cloud=tag_cloud()))
 
 def add_comment(request,year,month,day,slug):
     i = Issue.objects.get(pub_date="%04d-%02d-%02d" % (int(year),int(month),int(day)))
@@ -86,5 +88,12 @@ def archives(request):
     issues = Issue.objects.filter(status="published").order_by("-pub_date")
     only_one = len(issues) == 1
     return render_to_response("archives.html",dict(issues=issues,only_one=only_one))
+
+def tags(request):
+    pass
+
+def tag(request,slug):
+    tag = get_object_or_404(Tag,slug=slug)
+    return render_to_response("tag.html",dict(tag=tag))
 
 

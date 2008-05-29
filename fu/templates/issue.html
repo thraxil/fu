@@ -35,6 +35,20 @@ h1#masthead { background: url(/site_media/images/banner-{{issue.pub_date}}.jpg) 
 </div>
 <div class="clear"></div>
 
+
+{% if main_article.tags.all %}
+<hr />
+
+<div id="tags">Tags:
+{% for tag in main_article.tags.all %}
+
+<a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>
+
+{% endfor %}
+</div>
+{% endif %}
+
+
 <hr />
 
 <a title="post to delicious" href="http://del.icio.us/post?url=http://the-fu.com{{issue.get_absolute_url|urlencode}}&amp;title={{main_article.headline|urlencode}}"><img src="http://images.del.icio.us/static/img/delicious.small.gif"
@@ -128,6 +142,13 @@ width="65" height="65" border="0" /></a>
 
 
 {% endfor %}
+
+<h3>Tag cloud</h3>
+
+{% for tag in tag_cloud %}
+<a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>
+{% endfor %}
+
 
 <div id="clear"></div>
 </div>

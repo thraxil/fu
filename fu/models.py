@@ -74,6 +74,20 @@ class Issue(models.Model):
     def main_article(self):
         return list(self.article_set.order_by("cardinality"))[0]
 
+class Tag(models.Model):
+    name = models.CharField(max_length=256)
+    slug = models.SlugField(prepopulate_from=["name"])
+
+    class Admin:
+        pass
+
+    def get_absolute_url(self):
+        return "/tags/%s/" % self.slug
+
+def tag_cloud():
+    """ eventually, we'll scale the cloud. for now, just return list of all tags """
+    return Tag.objects.all().order_by("name")
+
 class Article(models.Model):
     headline = models.CharField(max_length=256)
     slug = models.SlugField(prepopulate_from=["headline"])
@@ -97,6 +111,8 @@ class Article(models.Model):
                                      blank=True
                                      )
     source = models.CharField("Image source",max_length=256,blank=True)
+    tags      = models.ManyToManyField(Tag,filter_interface=models.HORIZONTAL)
+
     
     class Admin:
         list_filter = ["issue"]
@@ -114,7 +130,7 @@ class Article(models.Model):
 
     def approved_comments(self):
         return self.comment_set.filter(status="approved").order_by("timestamp")
-    
+
 class Comment(models.Model):
     article = models.ForeignKey(Article)
     name    = models.CharField(max_length=256)
@@ -126,6 +142,7 @@ class Comment(models.Model):
                                         ('approved','Approved')))
     timestamp = models.DateTimeField(auto_now_add=True)
     content   = models.TextField()
+
 
     class Admin:
         list_filter = ["status"]
@@ -139,6 +156,8 @@ class Comment(models.Model):
 
     def get_absolute_url(self):
         return self.article.get_absolute_url() + "#comment-%s" % str(self.id)
+
+
 
 
     

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load markup %}
+{% load thumbnail %}
+
+{% block title %}{{ tag.name }}{% endblock %}
+{% block masthead %}{{ tag.name }}{% endblock %}
+{% block bodyclass %}tag-{{tag.slug}}{% endblock %}
+{% block content %}
+
+<div id="bodytext">
+
+<h2>Articles with tag "{{tag.name}}"</h2>
+<ul>
+{% for article in tag.article_set.all %}
+<li><a href="{{article.get_absolute_url}}">{{article.headline}}</a>
+  by {{ article.author.fullname }} ({{ article.issue.pub_date }})</li>
+{% endfor %}
+</ul>
+
+
+</div>
+
+<div class="clear"></div>
+
+{% endblock %}

@@ -111,7 +111,7 @@ class Article(models.Model):
                                      blank=True
                                      )
     source = models.CharField("Image source",max_length=256,blank=True)
-    tags      = models.ManyToManyField(Tag,filter_interface=models.HORIZONTAL)
+    tags      = models.ManyToManyField(Tag,filter_interface=models.HORIZONTAL,blank=True)
 
     
     class Admin:

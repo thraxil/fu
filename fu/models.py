@@ -84,6 +84,10 @@ class Tag(models.Model):
     def get_absolute_url(self):
         return "/tags/%s/" % self.slug
 
+    def __str__(self):
+        return self.name
+
+
 def tag_cloud():
     """ eventually, we'll scale the cloud. for now, just return list of all tags """
     return Tag.objects.all().order_by("name")

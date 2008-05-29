@@ -96,6 +96,7 @@ class Article(models.Model):
         },
                                      blank=True
                                      )
+    source = models.TextField("Image source",blank=True)
     
     class Admin:
         list_filter = ["issue"]

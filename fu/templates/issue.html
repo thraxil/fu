@@ -16,7 +16,10 @@ h1#masthead { background: url(/site_media/images/banner-{{issue.pub_date}}.jpg) 
 <h2>{{ main_article.headline }}</h2>
 
 {% if main_article.image %}
-<div class="article-thumb"><img src="{% thumbnail main_article.image 400x500 crop %}" width="400" height="500" alt="" /></div>
+<div class="article-thumb"><img src="{% thumbnail main_article.image 400x500 crop %}" width="400" height="500" alt="" />{% if main_article.source %}
+<div class="image-source">{{ article.source }}</div>
+{% endif %}
+</div>
 {% endif %}
 
 <p class="lede">{{ main_article.lede}}</p>

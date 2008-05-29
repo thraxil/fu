@@ -51,7 +51,11 @@ h1#masthead { background: url(/site_media/images/banner-{{article.issue.pub_date
      width="200"
      height="200"
      alt=""
-     /></div>
+     />
+{% if article.source %}
+<div class="image-source">{{ article.source }}</div>
+{% endif %}
+</div>
 {% endif %}
 
 {% if article.lede %}<p class="lede">{{ article.lede}}</p>{% endif %}

@@ -131,7 +131,7 @@ h2 { font-size: 14px;}
 
 #main h2 { font-size: 1.9em; margin-bottom: 1em; margin-top: 1em;}
 
-h2.cartoon {color: #999; font-size: 1.9em;}
+h2.cartoon {color: #999; font-size: 1.9em; padding-top: 1.5em;}
 body.article #main h2 { color: #999; margin-bottom: 0px;}
 
 body.article #byline .article-thumb { display: block; float: left;}
@@ -302,6 +302,8 @@ font-size: 90%;}
 .comment { padding-top: 20px; border-bottom: #000 solid 1px;}
 .comment-byline { background-color: #eee; width: 100%;}
 
-#tag-cloud { font-size: .8em;}
+#tag-cloud { font-size: .8em; font-weight: bold;}
 
 .image-source {font-size: .6em;}
+
+.blurb { padding-top: 2em;}

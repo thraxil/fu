@@ -76,7 +76,7 @@ h1#masthead { background: url(/site_media/images/banner-{{article.issue.pub_date
 {% for tag in article.tags.all %}
 
 <a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>
-
+{% if not forloop.last %} / {% endif %}
 {% endfor %}
 </div>
 {% endif %}
@@ -178,10 +178,12 @@ width="65" height="65" border="0" /></a>
 {% endfor %}
 
 <h3>Tag cloud</h3>
-
+<div id="tag-cloud">
 {% for tag in tag_cloud %}
 <a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>
+{% if not forloop.last %} / {% endif %}
 {% endfor %}
+</div>
 
 <div id="clear"></div>
 

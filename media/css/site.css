@@ -236,7 +236,9 @@ body.team .author-bio .close {
 
 body.team #main { text-align: center;}
 
-#team { width: 650px; margin-left: auto; margin-right: auto; text-align: left;}
+#team { width: 650px; margin-left: auto; margin-right: auto; text-align: left;
+padding-bottom: 200px;
+}
 
 #sidebar .article-thumb a { border-bottom: none;}
 

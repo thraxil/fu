@@ -28,7 +28,8 @@ h1#masthead { background: url(/site_media/images/banner-{{article.issue.pub_date
 </div>
 <div class="clear"></div>
 
-<img src="{% thumbnail article.image 850x30000 %}" width="850" alt="" />
+{% thumbnail article.image 850x30000 as cartoonimg %}
+<img src="{{ cartoonimg.absolute_url }}" width="{{ cartoonimg.width }}" alt="{{ cartoonimg.height }}" />
 
 <div class="blurb">
 {% if article.content %}

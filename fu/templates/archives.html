@@ -7,19 +7,27 @@
 {% block bodyclass %}Archives{% endblock %}
 {% block content %}
 
-<div id="bodytext">
 
 {% if only_one %}
 <p>Coming Soon...</p>
 {% else %}
-<ul>
+<div id="archives">
 {% for issue in issues %}
-<li><a href="{{issue.get_absolute_url}}">{{issue.pub_date}}</a></li>
-{% endfor %}
-</ul>
-{% endif %}
+<div class="archive-issue">
+<h3><a href="{{issue.get_absolute_url}}">Issue {{ issue.number }}: {{ issue.name }}</a></h3>
+
+<a href="{{issue.get_absolute_url}}" class="img"><img border="0" src="{% thumbnail issue.main_article.image 100x100 crop %}"
+					  width="100" height="100" class="archive-thumb"
+					  alt="" /></a><br />
+<div><a href="{{ issue.get_absolute_url }}">All {{ issue.name|upper }} articles</a></div>
 
 </div>
+
+{% endfor %}
+</div>
+{% endif %}
+
+
 
 <div class="clear"></div>
 

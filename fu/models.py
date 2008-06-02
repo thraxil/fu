@@ -58,6 +58,9 @@ class Issue(models.Model):
                                       blank=True
                                       )
 
+    name = models.CharField(max_length=256)
+    number = models.PositiveSmallIntegerField(default=1)
+
     class Meta:
         get_latest_by = "pub_date"
         ordering = ["-pub_date"]

@@ -309,3 +309,10 @@ font-size: 90%;}
 .image-source {font-size: .6em;}
 
 .blurb { padding-top: 2em;}
+
+.archive-issue { width: 200px; height: 150px; display: block; float: left; padding: 10px;}
+.archive-issue a.img { border-bottom: none;}
+.archive-issue h3 a { border-bottom: #fc3 solid 1px; }
+.archive-issue h3 { padding-bottom: 5px;}
+
+

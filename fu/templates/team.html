@@ -3,14 +3,6 @@
 {% load thumbnail %}
 
 {% block title %}team{% endblock %}
-{% block js %}
-
-<script type="text/javascript"
-	src="/site_media/js/mochikit/MochiKit/MochiKit.js"></script>
-<script type="text/javascript" src="/site_media/js/team.js"></script>
-
-{% endblock %}
-
 {% block bodyclass %}team{% endblock %}
 {% block masthead %}team{% endblock %}
 {% block content %}
@@ -26,7 +18,7 @@
 {% thumbnail author.headshot 100x100 crop,bw as bwheadshot %}
 {% thumbnail author.headshot 100x100 crop as colorheadshot %}
 
-<a href="#author-bio-{{ author.id }}" 
+<a href="/team/{{ author.first_name }}_{{ author.last_name }}/" 
 class="author-link"><img src="{{ bwheadshot }}"
 onmouseover="this.src = '{{colorheadshot}}'"
 onmouseout="this.src = '{{bwheadshot}}'"
@@ -34,17 +26,6 @@ onmouseout="this.src = '{{bwheadshot}}'"
      height="100" 
      alt="{{author.fullname}}" border="0"/></a>
 
-</div>
-
-<div class="author-bio invisible" id="author-bio-{{author.id}}">
-<h2>{{ author.fullname }}</h2>
-<div class="bio-inner">
-<div class="headshot"><img src="{% thumbnail author.headshot 200x200 crop %}" width="200"
-     height="200"/></div>
-
-{{ author.bio|markdown }}
-</div>
-<p class="close"><a href="#author-bio-{{ author.id }}" class="close-link">X close</a></p>
 </div>
 
 {% endfor %}

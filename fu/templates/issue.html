@@ -28,10 +28,10 @@ h1#masthead { background: url(/site_media/images/banner-{{issue.pub_date}}.jpg) 
 
 <div id="byline">
 <div class="article-thumb">
-<img src="{% thumbnail main_article.author.headshot 65x65 crop,upscale %}"
-     width="65" height="65" />
+<a href="/team/{{ main_article.author.first_name }}_{{ main_article.author.last_name }}/"><img src="{% thumbnail main_article.author.headshot 65x65 crop,upscale %}"
+     width="65" height="65" /></a>
 </div>
-<p>by {{ main_article.author.fullname}}</p>
+<p>by <a href="/team/{{ main_article.author.first_name }}_{{ main_article.author.last_name }}/">{{ main_article.author.fullname}}</a></p>
 </div>
 <div class="clear"></div>
 

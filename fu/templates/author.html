@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load markup %}
+{% load thumbnail %}
+
+{% block title %}{{ author.fullname }}{% endblock %}
+
+{% block bodyclass %}author{% endblock %}
+{% block masthead %}author{% endblock %}
+{% block content %}
+
+<div class="headshot"><img src="{% thumbnail author.headshot 200x200 crop %}" width="200"
+     height="200"/></div>
+<h2>{{ author.fullname }}</h2>
+
+{{ author.bio|markdown }}
+<div class="clear"></div>
+
+{% if author.article_set.all %}
+<h3>Articles by {{ author.fullname }}</h3>
+<ul>
+{% for article in author.article_set.all %}
+<li>
+<a href="{{ article.issue.get_absolute_url }}">Issue {{ article.issue.number }}: {{ article.issue.name }}</a>
+-- 
+<a href="{{ article.get_absolute_url }}">{{ article.headline }}</a> 
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}

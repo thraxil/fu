@@ -20,10 +20,10 @@ h1#masthead { background: url(/site_media/images/banner-{{article.issue.pub_date
 
 <div id="byline">
 <div class="article-thumb">
-<img src="{% thumbnail article.author.headshot 65x65 crop,upscale %}"
-     width="65" height="65" />
+<a href="/team/{{ article.author.first_name }}_{{ article.author.last_name }}/"><img src="{% thumbnail article.author.headshot 65x65 crop,upscale %}"
+     width="65" height="65" /></a>
 </div>
-<p>{{ article.author.fullname}}</p>
+<p><a href="/team/{{ article.author.first_name }}_{{ article.author.last_name }}/">{{ article.author.fullname}}</a></p>
 
 </div>
 <div class="clear"></div>
@@ -45,10 +45,10 @@ h1#masthead { background: url(/site_media/images/banner-{{article.issue.pub_date
 
 <div id="byline">
 <div class="article-thumb">
-<img src="{% thumbnail article.author.headshot 65x65 crop,upscale %}"
-     width="65" height="65" />
+<a href="/team/{{ article.author.first_name }}_{{ article.author.last_name }}/"><img src="{% thumbnail article.author.headshot 65x65 crop,upscale %}"
+     width="65" height="65" /></a>
 </div>
-<p>{{ article.author.fullname}}</p>
+<p><a href="/team/{{ article.author.first_name }}_{{ article.author.last_name }}/">{{ article.author.fullname}}</a></p>
 </div>
 <div class="clear"></div>
 

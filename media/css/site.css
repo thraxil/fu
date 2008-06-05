@@ -316,3 +316,9 @@ font-size: 90%;}
 .archive-issue h3 { padding-bottom: 5px;}
 
 
+.author .headshot { float: left; width: 210px; height: 210px; padding-top: 50px;}
+.author h2 { font-size: 1.5em; padding-top: 50px; padding-bottom: 20px;}
+.author h3 { border-top: #000 solid 1px; padding-bottom: 20px;}
+
+.article-thumb img { border: 0px;}
+.article-thumb a { text-decoration: none; border-bottom: none;}

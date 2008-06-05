@@ -96,4 +96,8 @@ def tag(request,slug):
     tag = get_object_or_404(Tag,slug=slug)
     return render_to_response("tag.html",dict(tag=tag))
 
+def author(request,name):
+    (first,last) = name.split("_")
+    author = get_object_or_404(Author,first_name=first,last_name=last)
+    return render_to_response("author.html",dict(author=author))
 

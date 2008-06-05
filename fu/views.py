@@ -90,7 +90,7 @@ def archives(request):
     return render_to_response("archives.html",dict(issues=issues,only_one=only_one))
 
 def tags(request):
-    pass
+    return HttpResponse("not implemented yet")
 
 def tag(request,slug):
     tag = get_object_or_404(Tag,slug=slug)

@@ -22,7 +22,7 @@ def issue(request,year,month,day):
 
 def article(request,year,month,day,slug):
     i = Issue.objects.get(pub_date="%04d-%02d-%02d" % (int(year),int(month),int(day)))
-    a = list(i.article_set.filter(slug=slug))[0]
+    a = get_object_or_404(Article,issue=i,slug=slug)
     return render_to_response("article.html",
                               dict(issue=i,
                                    article=a,

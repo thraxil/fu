@@ -77,6 +77,12 @@ class Issue(models.Model):
     def main_article(self):
         return list(self.article_set.order_by("cardinality"))[0]
 
+    def is_current(self):
+        return self == current_issue()
+
+    def banner_url(self):
+        return "/uploads/banners/%04d-%02d-%02d.jpg" % (self.pub_date.year,self.pub_date.month,self.pub_date.day)
+
 class Tag(models.Model):
     name = models.CharField(max_length=256)
     slug = models.SlugField(prepopulate_from=["name"])

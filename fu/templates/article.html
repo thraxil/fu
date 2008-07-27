@@ -4,8 +4,10 @@
 
 {% block title %}{{ article.headline }}{% endblock %}
 {% block css %}
-h1#masthead { background: url(/site_media/images/banner-{{article.issue.pub_date}}.jpg) !important;
+<style type="text/css">
+h1#masthead { background: url({% thumbnail article.issue.banner 900x129 crop %}) !important;
 }
+</style>
 {% endblock %}
 
 {% block bodyclass %}article{% endblock %}

@@ -29,7 +29,7 @@ h1#masthead{
 	background-color:#cccccc;
 	margin:0px; 
 	padding:0px;
-   background: url(/site_media/images/banner-current.jpg);
+
 }
 
 h1#masthead span {
@@ -322,3 +322,7 @@ font-size: 90%;}
 
 .article-thumb img { border: 0px;}
 .article-thumb a { text-decoration: none; border-bottom: none;}
+
+tr.even td {background-color: #ffc;}
+
+th { vertical-align: top; text-align: left; background-color: #eee;}

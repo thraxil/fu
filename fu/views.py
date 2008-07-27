@@ -2,7 +2,8 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render_to_response
 from models import Author,Issue,Article,current_issue,Comment,Tag,tag_cloud
 from django.core.mail import mail_managers
-
+from django.contrib.auth.decorators import login_required
+from datetime import datetime
 
 def index(request):
     # get newest issue and redirect to it
@@ -70,6 +71,12 @@ def add_comment(request,year,month,day,slug):
     else:
         return HttpResponseRedirect(referer)
 
+def banner_css(request):
+    current = current_issue()
+    response = render_to_response("banner.html",dict(current=current))
+    response['Content-Type'] = "text/css"
+    return response
+
 def team(request):
     return render_to_response("team.html",
                               dict(authors=list(Author.objects.order_by("first_name"))))
@@ -101,3 +108,51 @@ def author(request,name):
     author = get_object_or_404(Author,first_name=first,last_name=last)
     return render_to_response("author.html",dict(author=author))
 
+
+# admin views
+@login_required
+def admin_index(request):
+    issues = Issue.objects.all().order_by("-pub_date")    
+    return render_to_response("admin_index.html",dict(issues=issues))
+
+@login_required
+def admin_add_issue(request):
+    if request.method == "POST":
+        name = request.POST.get("name","")
+        pub_date = request.POST['pub_date'] # must be there
+        number = request.POST["number"]
+        content = request.POST.get("content","")
+        author = get_object_or_404(Author,id=request.POST["author"])
+        tags = request.POST.get("tags","")
+
+        issue = Issue.objects.create(status="draft",name=name,number=number,pub_date=pub_date)
+
+        slug = name.lower().replace(" ","-")
+
+        article = Article.objects.create(issue=issue,
+                                         headline=name,
+                                         slug=slug,
+                                         lede="",
+                                         content=content,
+                                         author=author,
+                                         cardinality=1,
+                                         source=request.POST.get("image_source",""),
+                                         )
+        
+        return HttpResponseRedirect("/fuadmin/")
+    else:
+        all_authors = Author.objects.all()
+        now = datetime.now()
+        next_month = (now.year,now.month + 1,1)
+        if now.month == 12:
+            next_month[0] = now.year + 1
+            next_month[1] = 1
+        number = int(current_issue().number) + 1
+        return render_to_response("admin_add_issue.html",dict(all_authors=all_authors,
+                                                              number=number,
+                                                              next_month="%04d-%02d-%02d" % next_month))
+    
+@login_required
+def admin_issue(request,id):
+    issue = get_object_or_404(Issue,id=id)
+    return render_to_response("admin_issue.html",dict(issue=issue))

@@ -84,6 +84,19 @@ class Issue(models.Model):
     def banner_url(self):
         return "/uploads/banners/%04d-%02d-%02d.jpg" % (self.pub_date.year,self.pub_date.month,self.pub_date.day)
 
+    def articles(self):
+        return list(self.article_set.filter(atype='article').order_by("cardinality"))[1:]
+
+    def cartoons(self):
+        return self.article_set.filter(atype='cartoon').order_by("cardinality")
+
+    def photos(self):
+        return self.article_set.filter(atype='photos').order_by("cardinality")
+
+    def editorials(self):
+        return self.article_set.filter(atype='editorial').order_by("cardinality")
+
+
 class Tag(models.Model):
     name = models.CharField(max_length=256)
     slug = models.SlugField(prepopulate_from=["name"])

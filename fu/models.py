@@ -132,7 +132,6 @@ class Article(models.Model):
     issue = models.ForeignKey(Issue)
     author = models.ForeignKey(Author)
     modified = models.DateTimeField(auto_now=True)
-    cartoon = models.BooleanField(default=False)
     cardinality = models.PositiveSmallIntegerField(default=1)
     image = ImageWithThumbnailsField(upload_to="article_images/%Y/%m/%d",
                                      thumbnail = {

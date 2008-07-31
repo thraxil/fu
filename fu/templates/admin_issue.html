@@ -1,0 +1,30 @@
+{% extends "admin_base.html" %}
+{% load markup %}
+{% load thumbnail %}
+{% block title %}admin index{% endblock %}
+{% block content %}
+
+<form action="" method="post" enctype="multipart/form-encode">
+<table width="100%">
+<tr><th colspan="2">Issue {{ issue.number }}: {{ issue.name }}, {{ issue.pub_date }}</th></tr>
+<tr><td colspan="2">
+<p>For now, use the old admin interface to <a href="/admin/fu/issue/{{issue.id}}/">edit this issue</a> if necessary</p>
+
+</td></tr>
+
+{% ifequal issue.status "draft" %}
+{% if issue.banner %}
+<tr>
+<th>publish</th>
+<td>publish this issue, making it the new current issue:<br />
+
+<input type="submit" name="publish" value="Publish!" />
+</td>
+</tr>
+{% endif %}
+{% endifequal %}
+
+
+</table>
+</form>
+{% endblock %}

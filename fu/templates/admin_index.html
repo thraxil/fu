@@ -1,0 +1,28 @@
+{% extends "admin_base.html" %}
+{% load markup %}
+{% load thumbnail %}
+{% block title %}admin index{% endblock %}
+{% block content %}
+
+
+<h2>Issues</h2>
+
+<p><a href="/fuadmin/add_issue/">Add a New Draft Issue</a></p>
+
+<table width="100%">
+
+{% for issue in issues %}
+<tr class="{% cycle 'even' 'odd'  %}">
+<td>{% if issue.is_current %}CURRENT -&gt;{% endif %}</td>
+<td><a href="/fuadmin/issue/{{issue.id}}/">Issue {{ issue.number }}:
+    {{ issue.name }}</a></td>
+<td>
+{% ifequal issue.status "draft" %}DRAFT{% endifequal %}</td>
+</td>
+<td>{{ issue.pub_date }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}

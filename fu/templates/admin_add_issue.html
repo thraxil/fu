@@ -1,0 +1,47 @@
+{% extends "admin_base.html" %}
+{% load markup %}
+{% load thumbnail %}
+{% block title %}admin index{% endblock %}
+{% block content %}
+
+
+
+
+<form action="" method="post" enctype="multipart/form-encode">
+<table width="100%">
+<tr><th colspan="2"><h2>Add a Draft Issue</h2></th></tr>
+<tr><th>Issue Name</th><td><input type="text" name="name" /></td></tr>
+<tr><th>Publication Date</th><td><input type="text" name="pub_date" size="10"
+					value="{{ next_month }}"/> (YYYY-MM-DD)</td></tr>
+<tr><th>Number</th><td><input type="text" name="number" size="3"
+			      value="{{ number }}" /></td></tr>
+<!-- <tr><th>Banner</th><td><input type="file" name="banner" --
+  -- /></td></tr> -->
+<tr><th colspan="2">Main Article</th></tr>
+<tr><th>Content</th><td>
+  <textarea id="id_content" class="vLargeTextField" name="content" rows="10" cols="70"></textarea>
+</td></tr>
+<tr><th>Author</th><td>
+<select name="author">
+{% for author in all_authors %}
+<option value="{{ author.id }}"
+{% ifequal author.first_name "Onika" %} selected="selected"{% endifequal %}
+>{{ author.first_name }} {{ author.last_name }}</option>
+{% endfor %}
+</select>
+</td></tr>
+<!-- <tr><th>Article Image</th><td><input type="file" name="article_image"/><br />
+Source: <input type="text" name="image_source" value="" /></td></tr> -->
+<!-- <tr><th>Tags</th>
+<td><input type="text" name="tags" />(comma seperated)</td></tr> -->
+
+</table>
+<input type="submit" value="add" />
+</form>
+
+<ul>todo
+<li>handle banner upload</li>
+<li>handle article image upload</li>
+<li>handle article tags</li>
+</ul>
+{% endblock %}

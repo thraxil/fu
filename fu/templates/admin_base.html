@@ -1,0 +1,30 @@
+<html>
+<head><title>the-fu.com (gameplans for dreamers): {% block title %}{% endblock %}</title>
+
+<style media="screen" type="text/css">
+@import "/site_media/css/site.css" ;
+</style>
+<style media="screen" type="text/css">
+{% block css %}{% endblock %}
+</style>
+{% block js %}{% endblock %}
+</head>
+<body class="{% block bodyclass %}{% endblock %}">
+
+
+<div id="wrapper">
+<h1 id="masthead"><span>the-fu.com: {% block masthead %}{% endblock %}</span></h1>
+
+
+<ul id="nav">
+<li><a href="/fuadmin/">Issues</a></li>
+<li><a href="/admin/fu/author/">Authors</a></li> 
+<li><a href="/admin/fu/comment/">Comments</a></li> 
+<li><a href="/admin/flatpages/flatpage/">Flatpages</a></li>
+</ul>
+
+{% block content %}{% endblock %}
+
+</div>
+</body>
+</html>

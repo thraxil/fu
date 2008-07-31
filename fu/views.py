@@ -156,3 +156,11 @@ def admin_add_issue(request):
 def admin_issue(request,id):
     issue = get_object_or_404(Issue,id=id)
     return render_to_response("admin_issue.html",dict(issue=issue))
+
+@login_required
+def admin_publish_issue(request,id):
+    issue = get_object_or_404(Issue,id=id)
+    issue.status = "published"
+    issue.save()
+    return HttpResponseRedirect("/")
+

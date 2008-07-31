@@ -15,10 +15,14 @@ h1#masthead { background: url({% thumbnail article.issue.banner 900x129 crop %})
 {% block content %}
 
 
+<div id="faux">
+<div id="main">
 
 {% if article.cartoon %}
-
 <h2 class="cartoon">{{ article.headline }}</h2>
+{% else %}
+<h2>{{ article.headline }}</h2>
+{% endif %}
 
 <div id="byline">
 <div class="article-thumb">
@@ -26,33 +30,22 @@ h1#masthead { background: url({% thumbnail article.issue.banner 900x129 crop %})
      width="65" height="65" /></a>
 </div>
 <p><a href="/team/{{ article.author.first_name }}_{{ article.author.last_name }}/">{{ article.author.fullname}}</a></p>
-
 </div>
 <div class="clear"></div>
 
-{% thumbnail article.image 850x30000 as cartoonimg %}
-<img src="{{ cartoonimg.absolute_url }}" width="{{ cartoonimg.width }}" alt="{{ cartoonimg.height }}" />
 
+{% if article.cartoon %}
+
+{% thumbnail article.image 650x30000 as cartoonimg %}
+<img src="{{ cartoonimg.absolute_url }}" width="{{ cartoonimg.width }}" alt="{{ cartoonimg.height }}" />
 <div class="blurb">
 {% if article.content %}
 {{ article.content|markdown }}
 {% endif %}
 </div>
 
+
 {% else %}
-<div id="faux">
-<div id="main">
-
-<h2>{{ article.headline }}</h2>
-
-<div id="byline">
-<div class="article-thumb">
-<a href="/team/{{ article.author.first_name }}_{{ article.author.last_name }}/"><img src="{% thumbnail article.author.headshot 65x65 crop,upscale %}"
-     width="65" height="65" /></a>
-</div>
-<p><a href="/team/{{ article.author.first_name }}_{{ article.author.last_name }}/">{{ article.author.fullname}}</a></p>
-</div>
-<div class="clear"></div>
 
 {% if article.image %}
 <div class="article-thumb">
@@ -72,6 +65,7 @@ h1#masthead { background: url({% thumbnail article.issue.banner 900x129 crop %})
 {{ article.content|markdown }}
 
 {% endif %}
+
 
 {% if article.tags.all %}
 <hr />
@@ -152,7 +146,7 @@ remember info?
 </div>
 <div class="clear"></div>
 
-{% if not article.cartoon %}
+
 </div>
 
 
@@ -195,5 +189,5 @@ width="65" height="65" border="0" /></a>
 
 </div>
 </div>
-{% endif %}
+
 {% endblock %}

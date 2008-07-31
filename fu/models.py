@@ -149,6 +149,7 @@ class Article(models.Model):
     tags      = models.ManyToManyField(Tag,filter_interface=models.HORIZONTAL,blank=True)
     atype = models.CharField("Type",max_length=30,default="article",
                              choices=(('article','Article'),
+                                      ('editorial','Editorial'),
                                       ('photos','Photos'),
                                       ('cartoon','Cartoon')))
 

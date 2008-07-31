@@ -18,7 +18,7 @@ h1#masthead { background: url({% thumbnail article.issue.banner 900x129 crop %})
 <div id="faux">
 <div id="main">
 
-{% if article.cartoon %}
+{% if article.is_cartoon %}
 <h2 class="cartoon">{{ article.headline }}</h2>
 {% else %}
 <h2>{{ article.headline }}</h2>
@@ -34,7 +34,7 @@ h1#masthead { background: url({% thumbnail article.issue.banner 900x129 crop %})
 <div class="clear"></div>
 
 
-{% if article.cartoon %}
+{% if article.is_cartoon %}
 
 {% thumbnail article.image 650x30000 as cartoonimg %}
 <img src="{{ cartoonimg.absolute_url }}" width="{{ cartoonimg.width }}" alt="{{ cartoonimg.height }}" />

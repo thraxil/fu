@@ -148,6 +148,10 @@ class Article(models.Model):
                                      )
     source = models.CharField("Image source",max_length=256,blank=True)
     tags      = models.ManyToManyField(Tag,filter_interface=models.HORIZONTAL,blank=True)
+    atype = models.CharField("Type",max_length=30,default="article",
+                             choices=(('article','Article'),
+                                      ('photos','Photos'),
+                                      ('cartoon','Cartoon')))
 
     
     class Admin:
@@ -179,7 +183,11 @@ class Article(models.Model):
             t = get_or_create_tag(tag)
             self.tags.add(t)
         clear_unused_tags()
-        return 
+        return
+
+    def is_cartoon(self):
+        return self.atype == "cartoon"
+
 
 
 

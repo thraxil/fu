@@ -1,6 +1,6 @@
 {% load thumbnail %}
 {% load markup %}
-{% if obj.cartoon %}
+{% if obj.is_cartoon %}
 
 <img src="http://the-fu.com{% thumbnail obj.image 500x30000 %}" width="500" alt="" />
 

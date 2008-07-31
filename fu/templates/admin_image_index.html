@@ -1,0 +1,18 @@
+{% extends "admin_base.html" %}
+{% load markup %}
+{% load thumbnail %}
+{% block title %}admin index{% endblock %}
+{% block content %}
+
+
+<h2>Images</h2>
+
+{% for image in images %}
+<div class="thumb">
+{% thumbnail image.image 100x100 crop,upscale as t %}
+<a href="{{ image.admin_url }}" title="{{ image.title }}"><img 
+src="{{ t.absolute_url }}" width="{{ t.width }}" height="{{ t.height }}" /></a>
+</div>
+{% endfor %}
+
+{% endblock %}

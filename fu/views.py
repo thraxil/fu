@@ -1,6 +1,6 @@
 from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render_to_response
-from models import Author,Issue,Article,current_issue,Comment,Tag,tag_cloud
+from models import Author,Issue,Article,current_issue,Comment,Tag,tag_cloud,Image
 from django.core.mail import mail_managers
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
@@ -114,6 +114,14 @@ def author(request,name):
 def admin_index(request):
     issues = Issue.objects.all().order_by("-pub_date")    
     return render_to_response("admin_index.html",dict(issues=issues))
+
+@login_required
+def admin_image_index(request):
+    return render_to_response("admin_image_index.html",dict(images=Image.objects.all().order_by("-modified")))
+
+@login_required
+def admin_image(request,id):
+    return render_to_response("admin_image.html",dict(image=get_object_or_404(Image,id=id)))
 
 @login_required
 def admin_add_issue(request):

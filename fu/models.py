@@ -201,6 +201,33 @@ class Article(models.Model):
     def is_cartoon(self):
         return self.atype == "cartoon"
 
+class Image(models.Model):
+    class Admin:
+        pass
+    
+    title = models.CharField(max_length=256,default="no title")
+    source = models.CharField("Image source",max_length=256,blank=True)
+    description = models.TextField(blank=True)
+    image = ImageWithThumbnailsField(upload_to="images/%Y/%m/%d/%H/%M/%S",
+                                     thumbnail = {
+        'size' : (650,10000)
+        },
+                                     extra_thumbnails={
+        'admin' : {
+        'size' : (70,50),
+        'options' : ('sharpen',),
+        }
+        },
+                                     blank=True
+                                     )
+    modified = models.DateTimeField(auto_now=True)
+
+    def admin_url(self):
+        return "/fuadmin/image/%d/" % self.id
+
+    def __str__(self):
+        return self.title
+
 
 
 

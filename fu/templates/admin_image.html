@@ -1,0 +1,22 @@
+{% extends "admin_base.html" %}
+{% load markup %}
+{% load thumbnail %}
+{% block title %}admin index{% endblock %}
+{% block content %}
+
+
+<h2>{{ image.title }}</h2>
+
+{% thumbnail image.image 650x10000 crop as t %}
+{% thumbnail image.image 100x100 crop as t100 %}
+
+<p>Available size: <a href="{{ t.absolute_url }}">{{ t.width }}x{{ t.height }}</a>
+<a href="{{ t100.absolute_url }}">{{ t100.width }}x{{ t100.height }}</a>
+<a href="{{ image.get_image_url }}">fullsize ({{ image.get_image_width }}x{{image.get_image_height}})</a>
+</p>
+
+<img src="{{ t.absolute_url }}" width="{{ t.width }}" height="{{ t.height }}" />
+
+<hr />
+
+{% endblock %}

@@ -326,3 +326,5 @@ font-size: 90%;}
 tr.even td {background-color: #ffc;}
 
 th { vertical-align: top; text-align: left; background-color: #eee;}
+
+.thumb { float: left; width: 110px; height: 110px; display: block;}

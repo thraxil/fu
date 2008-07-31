@@ -23,8 +23,21 @@
 </tr>
 {% endif %}
 {% endifequal %}
-
-
 </table>
 </form>
+
+<h2>articles</h2>
+<form action="edit_tags/" method="post">
+<table width="100%">
+<tr><th>article</th><th>author</th><th>tags</th></tr>
+{% for article in issue.article_set.all %}
+<tr class="{% cycle 'even' 'odd'  %}"><td><a href="/admin/fu/article/{{article.id}}/">{{ article.headline }}</a></td>
+<td><nobr><a href="/admin/fu/author/{{ article.author.id}}/">{{ article.author }}</a></nobr></td>
+<td><input type="text" style="width: 100%" name="tags-{{article.id}}" value="{{ article.tags_string }}" /></td>
+</tr>
+{% endfor %}
+</table>
+<input type="submit" value="save" />
+</form>
+
 {% endblock %}

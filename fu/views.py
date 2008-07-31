@@ -157,10 +157,22 @@ def admin_issue(request,id):
     issue = get_object_or_404(Issue,id=id)
     return render_to_response("admin_issue.html",dict(issue=issue))
 
+
 @login_required
 def admin_publish_issue(request,id):
     issue = get_object_or_404(Issue,id=id)
     issue.status = "published"
     issue.save()
     return HttpResponseRedirect("/")
+
+
+@login_required
+def admin_edit_issue_tags(request,id):
+    issue = get_object_or_404(Issue,id=id)
+
+    for article in issue.article_set.all():
+        tags = request.POST.get("tags-%d" % article.id,"")
+        article.set_tags(tags)
+
+    return HttpResponseRedirect("/fuadmin/issue/%d/" % issue.id)
 

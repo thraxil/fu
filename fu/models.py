@@ -1,5 +1,6 @@
 from django.db import models
 from sorl.thumbnail.fields import ImageWithThumbnailsField
+import re
 
 class Author(models.Model):
     class Admin:
@@ -96,10 +97,32 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
+def make_slug(title="no title"):
+    title = title.strip()
+    slug = re.sub(r"[\W\-]+","-",title)
+    slug = re.sub(r"^\-+","",slug)
+    slug = re.sub(r"\-+$","",slug)
+    if slug == "":
+        slug = "-"
+    return slug
+
+def get_or_create_tag(name):
+    r = Tag.objects.filter(name__iexact=name)
+    if r.count() > 0:
+        return r[0]
+    else:
+        return Tag.objects.create(name=name,slug=make_slug(name))
+
 
 def tag_cloud():
     """ eventually, we'll scale the cloud. for now, just return list of all tags """
     return Tag.objects.all().order_by("name")
+
+def clear_unused_tags():
+    for t in Tag.objects.all():
+        if t.article_set.all().count() == 0:
+            t.delete()
+
 
 class Article(models.Model):
     headline = models.CharField(max_length=256)
@@ -143,6 +166,22 @@ class Article(models.Model):
 
     def approved_comments(self):
         return self.comment_set.filter(status="approved").order_by("timestamp")
+
+    def tags_string(self):
+        return ", ".join([t.name.lower() for t in self.tags.all()])
+
+    def set_tags(self,tags_string):
+        self.tags.clear()
+        for tag in tags_string.split(","):
+            tag = tag.lower().strip()
+            if not tag:
+                continue
+            t = get_or_create_tag(tag)
+            self.tags.add(t)
+        clear_unused_tags()
+        return 
+
+
 
 class Comment(models.Model):
     article = models.ForeignKey(Article)

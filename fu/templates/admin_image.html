@@ -7,7 +7,7 @@
 
 <h2>{{ image.title }}</h2>
 
-{% thumbnail image.image 650x10000 crop as t %}
+{% thumbnail image.image 650x10000 as t %}
 {% thumbnail image.image 100x100 crop as t100 %}
 
 <p>Available size: <a href="{{ t.absolute_url }}">{{ t.width }}x{{ t.height }}</a>

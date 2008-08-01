@@ -17,7 +17,7 @@ def index(request):
 def issue(request,year,month,day):
     i = Issue.objects.get(pub_date="%04d-%02d-%02d" % (int(year),int(month),int(day)))
     if i.status == "draft":
-        if not request.user.is_staff():
+        if not request.user.is_staff:
             return HttpResponse("for staff eyes only")
     main_article = i.main_article()
     return render_to_response("issue.html",dict(issue=i,
@@ -28,7 +28,7 @@ def article(request,year,month,day,slug):
     i = Issue.objects.get(pub_date="%04d-%02d-%02d" % (int(year),int(month),int(day)))
     a = get_object_or_404(Article,issue=i,slug=slug)
     if i.status == "draft":
-        if not request.user.is_staff():
+        if not request.user.is_staff:
             return HttpResponse("for staff eyes only")
     return render_to_response("article.html",
                               dict(issue=i,

@@ -15,8 +15,13 @@
 <a href="{{ image.get_image_url }}">fullsize ({{ image.get_image_width }}x{{image.get_image_height}})</a>
 </p>
 
-<img src="{{ t.absolute_url }}" width="{{ t.width }}" height="{{ t.height }}" />
+<h3>code</h3>
+(sized to fit nicely in the article)
+<textarea cols="100" rows="2">&lt;img src="{{ t.absolute_url }}" width="{{ t.width }}" height="{{ t.height }}" alt="{{image.title}}" /&gt;</textarea>
 
 <hr />
+<img src="{{ t.absolute_url }}" width="{{ t.width }}" height="{{ t.height }}" />
+
+
 
 {% endblock %}

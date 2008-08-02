@@ -331,7 +331,7 @@ th { vertical-align: top; text-align: left; background-color: #eee;}
 
 .thumb { float: left; width: 110px; height: 110px; display: block;}
 
-.atype { font-weight: bold; border: #000 solid 2px; padding: 2px;}
+.atype { font-weight: bold; border: #000 solid 2px; padding: 2px; cursor: move;}
 
 textarea { border: #000 solid 1px;}
 input[type="text"] { border: #000 solid 1px;}

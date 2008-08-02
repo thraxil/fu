@@ -96,6 +96,10 @@ class Issue(models.Model):
     def editorials(self):
         return self.article_set.filter(atype='editorial').order_by("cardinality")
 
+    def all_articles(self):
+        return self.article_set.order_by("cardinality")
+
+
 
 class Tag(models.Model):
     name = models.CharField(max_length=256)
@@ -172,7 +176,7 @@ class Article(models.Model):
 
     class Meta:
         order_with_respect_to = 'issue'
-        ordering = ['cardinality']
+        ordering = ['cardinality',]
         unique_together = [('issue','slug')]
 
     def __str__(self):

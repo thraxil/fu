@@ -179,6 +179,18 @@ def admin_publish_issue(request,id):
     issue.save()
     return HttpResponseRedirect("/")
 
+@login_required
+def admin_reorder_issue(request,id):
+    issue = get_object_or_404(Issue,id=id)
+    for k in request.GET.keys():
+        if not k.startswith('article'):
+            continue
+        aid = k.split('-')[1]
+        article = get_object_or_404(Article,id=aid)
+        article.cardinality = request.GET[k]
+        article.save()
+    return HttpResponse("ok")
+
 
 @login_required
 def admin_edit_issue_tags(request,id):

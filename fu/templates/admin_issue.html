@@ -2,6 +2,10 @@
 {% load markup %}
 {% load thumbnail %}
 {% block title %}admin index{% endblock %}
+{% block js %}
+<script type="text/javascript" src="/site_media/js/mochikit/MochiKit/MochiKit.js"></script>
+<script type="text/javascript" src="/site_media/js/dragdropreorder.js"></script>
+{% endblock %}
 {% block content %}
 
 <form action="publish/" method="post" enctype="multipart/form-encode">
@@ -28,10 +32,10 @@
 
 <h2>articles</h2>
 <form action="edit_tags/" method="post">
-<table width="100%">
+<table width="100%" id="article-table">
 <tr><th></th><th>article</th><th>author</th><th>tags</th></tr>
-{% for article in issue.article_set.all %}
-<tr class="{% cycle 'even' 'odd'  %}">
+{% for article in issue.all_articles %}
+<tr class="draggable" id="article-{{article.id}}">
 <td><span class="atype">
 {% ifequal article.atype "article" %}A{% endifequal %}
 {% ifequal article.atype "editorial" %}E{% endifequal %}

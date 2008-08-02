@@ -338,3 +338,6 @@ input[type="text"] { border: #000 solid 1px;}
 input:focus, textarea:focus{
 background-color: lightyellow;
 }
+
+.dragging { cursor: move; background-color: lightyellow;}
+

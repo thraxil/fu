@@ -4,6 +4,8 @@ from models import Author,Issue,Article,current_issue,Comment,Tag,tag_cloud,Imag
 from django.core.mail import mail_managers
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
+from fusite.settings import MEDIA_ROOT
+import os
 
 def index(request):
     # get newest issue and redirect to it
@@ -141,6 +143,18 @@ def admin_add_issue(request):
 
         issue = Issue.objects.create(status="draft",name=name,number=number,pub_date=pub_date)
 
+
+        if 'banner' in request.FILES:
+            file = request.FILES['banner']
+            filename = file['filename']
+
+            full_filename = '%s/banners/banner-%s.jpg' % (MEDIA_ROOT, pub_date)
+            fd = open(full_filename, 'wb')
+            fd.write(file['content'])
+            fd.close()
+            issue.banner = 'banners/banner-%s.jpg' % pub_date
+            issue.save()
+
         slug = name.lower().replace(" ","-")
 
         article = Article.objects.create(issue=issue,
@@ -152,6 +166,28 @@ def admin_add_issue(request):
                                          cardinality=1,
                                          source=request.POST.get("image_source",""),
                                          )
+
+        if 'article_image' in request.FILES:
+            file = request.FILES['article_image']
+            filename = file['filename']
+
+            (y,m,d) = [int(x) for x in pub_date.split("-")]
+            full_path = '%s/article_images/%04d/%02d/%02d' % (MEDIA_ROOT,y,m,d)
+            try:
+                os.makedirs(full_path)
+            except:
+                pass
+            
+            full_filename = full_path + "/" + filename
+            fd = open(full_filename, 'wb')
+            fd.write(file['content'])
+            fd.close()
+            article.image = 'article_images/%04d/%02d/%02d/%s' % (y,m,d,filename)
+            article.source = request.POST.get('image_source','')
+            article.save()
+
+        tags = request.POST.get("tags","")
+        article.set_tags(tags)
         
         return HttpResponseRedirect("/fuadmin/")
     else:

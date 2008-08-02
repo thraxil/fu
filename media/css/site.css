@@ -234,6 +234,8 @@ body.team .author-bio .close {
 
 #sidebar .article h2 {font-size: 14px;}
 
+#sidebar h3 { color: #999; margin-top: 1.5em;}
+
 body.team #main { text-align: center;}
 
 #team { width: 650px; margin-left: auto; margin-right: auto; text-align: left;

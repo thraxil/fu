@@ -18,7 +18,7 @@
 {% if author.article_set.all %}
 <h3>Articles by {{ author.fullname }}</h3>
 <ul>
-{% for article in author.article_set.all %}
+{% for article in author.articles %}
 <li>
 <a href="{{ article.issue.get_absolute_url }}">Issue {{ article.issue.number }}: {{ article.issue.name }}</a>
 -- 

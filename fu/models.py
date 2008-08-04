@@ -30,6 +30,11 @@ class Author(models.Model):
     def fullname(self):
         return "%s %s" % (self.first_name,self.last_name)
 
+    def articles(self):
+        return self.article_set.all().order_by("issue")
+#        articles = list(self.article_set.all())
+#        articles.sort(key=lambda x: x.issue.pub_date)
+#        return articles
 
 def current_issue():
     r = Issue.objects.filter(status="published").order_by("-pub_date")

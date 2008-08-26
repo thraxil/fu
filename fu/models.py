@@ -21,6 +21,15 @@ class Author(models.Model):
         }
                                         )
 
+    occupation = models.TextField(blank=True)
+    home_town = models.CharField(max_length=256)
+    location = models.CharField(max_length=256)
+    obsessions = models.TextField(blank=True)
+    ultimate_goal = models.TextField(blank=True)
+    favorite_quote = models.TextField(blank=True)
+    website_name = models.CharField(max_length=256)
+    website_url  = models.URLField(blank=True)
+
     class Meta:
         ordering = ["first_name","last_name"]
 

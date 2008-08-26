@@ -12,6 +12,13 @@
      height="200"/></div>
 <h2>{{ author.fullname }}</h2>
 
+{% if author.occupation %}<div><b>OCCUPATION:</b> {{ author.occupation}}</div>{% endif %}
+{% if author.home_town %}<div><b>HOME TOWN:</b> {{ author.home_town}}</div>{% endif %}
+{% if author.location %}<div><b>LOCATION:</b> {{ author.location}}</div>{% endif %}
+{% if author.obsessions %}<div><b>OBSESSION(S):</b> {{ author.obsessions}}</div>{% endif %}
+{% if author.ultimate_goal %}<div><b>ULTIMATE GOAL:</b> {{ author.ultimate_goal}}</div>{% endif %}
+{% if author.favorite_quote %}<div><b>FAVORITE QUOTE:</b> {{ author.favorite_quote}}</div>{% endif %}
+{% if author.website_url %}<div><b>BLOG / WEBSITE:</b> <a href="{{ author.website_url }}">{{ author.website_name}}</a></div>{% endif %}
 {{ author.bio|markdown }}
 <div class="clear"></div>
 

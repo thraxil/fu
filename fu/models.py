@@ -107,8 +107,8 @@ class Issue(models.Model):
     def photos(self):
         return self.article_set.filter(atype='photos').order_by("cardinality")
 
-    def editorials(self):
-        return self.article_set.filter(atype='editorial').order_by("cardinality")
+    def videos(self):
+        return self.article_set.filter(atype='video').order_by("cardinality")
 
     def all_articles(self):
         return self.article_set.order_by("cardinality")
@@ -180,7 +180,7 @@ class Article(models.Model):
     tags      = models.ManyToManyField(Tag,filter_interface=models.HORIZONTAL,blank=True)
     atype = models.CharField("Type",max_length=30,default="article",
                              choices=(('article','Article'),
-                                      ('editorial','Editorial'),
+                                      ('video','Videos'),
                                       ('photos','Photos'),
                                       ('cartoon','Cartoon')))
 

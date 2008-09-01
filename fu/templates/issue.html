@@ -144,8 +144,8 @@ width="65" height="65" border="0" /></a>
 </div>
 {% endfor %}{% endif %}
 
-{% if issue.editorials %}<h3>Editorials:</h3>
-{% for article in issue.editorials %}
+{% if issue.videos %}<h3>Videos:</h3>
+{% for article in issue.videos %}
 <div class="article">
 <div class="article-thumb">
 {% thumbnail article.author.headshot 65x65 crop,bw,upscale as bwheadshot %}

@@ -22,12 +22,12 @@ class Author(models.Model):
                                         )
 
     occupation = models.TextField(blank=True)
-    home_town = models.CharField(max_length=256)
-    location = models.CharField(max_length=256)
+    home_town = models.CharField(max_length=256,blank=True)
+    location = models.CharField(max_length=256,blank=True)
     obsessions = models.TextField(blank=True)
     ultimate_goal = models.TextField(blank=True)
     favorite_quote = models.TextField(blank=True)
-    website_name = models.CharField(max_length=256)
+    website_name = models.CharField(max_length=256,blank=True)
     website_url  = models.URLField(blank=True)
 
     class Meta:

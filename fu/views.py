@@ -23,8 +23,7 @@ def issue(request,year,month,day):
             return HttpResponse("for staff eyes only")
     main_article = i.main_article()
     return render_to_response("issue.html",dict(issue=i,
-                                                main_article=main_article,
-                                                tag_cloud=tag_cloud()))
+                                                main_article=main_article))
 
 def article(request,year,month,day,slug):
     i = Issue.objects.get(pub_date="%04d-%02d-%02d" % (int(year),int(month),int(day)))
@@ -34,8 +33,8 @@ def article(request,year,month,day,slug):
             return HttpResponse("for staff eyes only")
     return render_to_response("article.html",
                               dict(issue=i,
-                                   article=a,
-                                   tag_cloud=tag_cloud()))
+                                   article=a))
+
 
 def add_comment(request,year,month,day,slug):
     i = Issue.objects.get(pub_date="%04d-%02d-%02d" % (int(year),int(month),int(day)))

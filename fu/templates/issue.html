@@ -195,13 +195,6 @@ width="65" height="65" border="0" /></a>
 </div>
 {% endfor %}{% endif %}
 
-<h3>Tag cloud</h3>
-<div id="tag-cloud">
-{% for tag in tag_cloud %}
-<a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>
-{% if not forloop.last %} / {% endif %}
-{% endfor %}
-</div>
 
 <div id="clear"></div>
 </div>
@@ -225,5 +218,6 @@ differences of opinion.</span>
    src="http://mt.onikaverse.com/mt/mt-static/images/status_icons/feed.gif"
    alt="Subscribe to feed" height="9" width="9" border="0" />
    Subscribe to feed</a></div>
+
 </div>
 {% endblock %}

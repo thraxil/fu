@@ -230,15 +230,6 @@ width="65" height="65" border="0" /></a>
 {% endfor %}{% endif %}
 
 
-
-<h3>Tag cloud</h3>
-<div id="tag-cloud">
-{% for tag in tag_cloud %}
-<a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>
-{% if not forloop.last %} / {% endif %}
-{% endfor %}
-</div>
-
 <div id="clear"></div>
 
 

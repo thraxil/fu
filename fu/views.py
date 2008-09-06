@@ -1,6 +1,7 @@
 from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render_to_response
 from models import Author,Issue,Article,current_issue,Comment,Tag,tag_cloud,Image
+from django.db.models import Q
 from django.core.mail import mail_managers
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
@@ -34,6 +35,15 @@ def article(request,year,month,day,slug):
     return render_to_response("article.html",
                               dict(issue=i,
                                    article=a))
+
+def search(request):
+    q = request.GET.get("q","")
+    articles = []
+    if q != "":
+        articles = Article.objects.filter(Q(headline__icontains=q) |
+                                          Q(content__icontains=q) |
+                                          Q(lede__icontains=q)).order_by("-modified")
+    return render_to_response("search_results.html",dict(q=q,articles=articles[:50]))
 
 
 def add_comment(request,year,month,day,slug):

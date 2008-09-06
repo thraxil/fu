@@ -7,6 +7,7 @@ feeds = dict(main=MainFeed,
 
 urlpatterns = patterns('',
                        (r'^$','fusite.fu.views.index'),
+                       (r'^search/$','fusite.fu.views.search'),
                        (r'^team/$','fusite.fu.views.team'),
                        (r'^team/(?P<name>[^/]+)/$','fusite.fu.views.author'),
                        (r'^issues/(?P<year>\d+)\-(?P<month>\d+)\-(?P<day>\d+)/$', 'fusite.fu.views.issue'),

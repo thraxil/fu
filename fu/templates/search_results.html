@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load markup %}
+{% load thumbnail %}
+
+{% block title %}search results for: {{ q }}{% endblock %}
+{% block bodyclass %}search-results{% endblock %}
+{% block content %}
+<div class="faux">
+<div class="main">
+
+<form action="/search/" method="get"><input type="text" name="q"
+					    value="{{ q }}" />
+<input type="submit" value="search" />
+</form>
+
+{% if articles %}
+<h2>Articles matching "{{q}}"</h2>
+
+{% for article in articles %}
+<h3><a href="{{article.get_absolute_url}}">{{article.headline}}</a></h3>
+  <p>by {{ article.author.fullname }} ({{ article.issue.pub_date }})</p>
+{% endfor %}
+{% else %}
+<p>no articles matched your search for "{{ q }}"</p>
+{% endif %}
+
+</div>
+</div>
+
+<div class="clear"></div>
+
+{% endblock %}

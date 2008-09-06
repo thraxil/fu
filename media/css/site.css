@@ -342,3 +342,8 @@ background-color: lightyellow;
 .dragging { cursor: move; background-color: lightyellow;}
 
 #copyright {font-size: .8em;}
+
+body.search-results h2 { font-size: 2em; margin-top: 1em; margin-bottom: 1em;}
+
+#searchform input[type="text"] { width: 130px; background-color: #eee; }
+#searchform input[type="submit"] { border: #000 solid 1px; font-size: .8em; }

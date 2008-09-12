@@ -97,6 +97,7 @@ h1#masthead { background: url({% thumbnail issue.banner 900x129 crop %}) !import
 {% endif %}
 </div>
 
+{% if main_article.comments_allowed %}
 <div id="comment-form">
 <form action="{{ main_article.get_absolute_url }}add_comment/"
       method="post" onsubmit="return commentSubmit()">
@@ -118,7 +119,7 @@ remember info?
 </table><br />
 <input type="submit" value="add comment" />
 </form>
-</div>
+</div>{% endif %}
 <div class="clear"></div>
 
 </div>

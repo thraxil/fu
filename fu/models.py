@@ -219,6 +219,9 @@ class Article(models.Model):
     def is_cartoon(self):
         return self.atype == "cartoon"
 
+    def comments_allowed(self):
+        return self.issue.is_current()
+
 class Image(models.Model):
     class Admin:
         pass

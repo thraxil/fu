@@ -50,6 +50,9 @@ def add_comment(request,year,month,day,slug):
     i = Issue.objects.get(pub_date="%04d-%02d-%02d" % (int(year),int(month),int(day)))
     a = list(i.article_set.filter(slug=slug))[0]
 
+    if not a.comments_allowed():
+        return HttpResponse("sorry, only the latest issue is open to comments")
+
     url = request.POST.get("url","")
     if not url == "":
         if not url.startswith("http://"):

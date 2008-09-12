@@ -121,7 +121,7 @@ h1#masthead { background: url({% thumbnail article.issue.banner 900x129 crop %})
 {% endfor %}
 {% endif %}
 </div>
-
+{% if article.comments_allowed %}
 <div id="comment-form">
 <form action="{{ article.get_absolute_url }}add_comment/"
       method="post" onsubmit="return commentSubmit()">
@@ -144,6 +144,7 @@ remember info?
 <input type="submit" value="add comment" />
 </form>
 </div>
+{% endif %}
 <div class="clear"></div>
 
 

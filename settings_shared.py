@@ -9,7 +9,7 @@ ADMINS = (
 
 MANAGERS = (
     ('Anders Pearson','anders@columbia.edu'),
-    ('Onika Simon','onikaverse@gmail.com'),
+    ('Onika Simon','fuprints@gmail.com'),
     )
 
 DATABASE_ENGINE = 'postgresql_psycopg2'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'ado_mssql'.

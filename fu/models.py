@@ -1,6 +1,7 @@
 from django.db import models
 from sorl.thumbnail.fields import ImageWithThumbnailsField
 import re
+from datetime import datetime, timedelta
 
 class Author(models.Model):
     class Admin:
@@ -220,7 +221,12 @@ class Article(models.Model):
         return self.atype == "cartoon"
 
     def comments_allowed(self):
-        return self.issue.is_current()
+        """ comments only allowed on current issue and only 
+        for two months """
+        if not self.issue.is_current():
+            return False
+        now = datetime.now()
+        return self.issue.pub_date + timedelta(weeks=8) > now
 
 class Image(models.Model):
     class Admin:
